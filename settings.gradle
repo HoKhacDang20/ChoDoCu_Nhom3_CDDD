@@ -1,0 +1,2 @@
+rootProject.name = "ChoDoCu_Nhom3_CDDD"
+include ':app'
