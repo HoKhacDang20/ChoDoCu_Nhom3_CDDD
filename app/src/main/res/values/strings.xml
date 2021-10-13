@@ -1,3 +1,228 @@
 <resources>
-    <string name="app_name">ChoDoCu_Nhom3_CDDD</string>
+    <string name="app_name">Chợ Đồ Cũ - Bán hàng online</string>
+
+    <!-- Màn hình đăng nhập !-->
+    <string name="dang_nhap">Đăng nhập</string>
+        <string name="title_activity_user_main">MainActivity</string>
+        <string name="title_home">Home</string>
+        <string name="title_dashboard">New post</string>
+        <string name="title_notifications">Setting</string>
+
+        <string name="home">Home</string>
+        <string name="login_text">Đăng nhập</string>
+        <string name="user_input_hint">User name</string>
+        <string name="pass_input_hint">Mật khẩu</string>
+        <string name="registry_question">Bạn chưa có tài khoản?</string>
+        <string name="registry_link">Đăng ký ngay</string>
+        <string name="registry_label">Đăng ký tài khoản</string>
+        <string name="edit_label">Thông tin tài khoản</string>
+        <string name="user_password_change">Đổi mật khẩu</string>
+        <string name="registry_cancel">Bạn đã có tài khoản?</string>
+        <string name="registry_return">Đăng nhập ngay</string>
+        <string name="registry_btn">Đăng ký</string>
+        <string name="registry_username">User name*</string>
+        <string name="registry_name">Họ tên*</string>
+        <string name="registry_phone">Số điện thoại*</string>
+        <string name="registry_gender">Giới tính: </string>
+        <string name="registry_address">Địa chỉ*</string>
+        <string name="registry_password">Mật khẩu*</string>
+        <string name="user_old_password">Mật khẩu cũ*</string>
+        <string name="user_new_password">Mật khẩu mới*</string>
+        <string name="registry_confirm_pass">Xác nhận mật khẩu</string>
+        <string name="find">Tìm kiếm</string>
+        <string name="sap_xep_gia_tang_dan">Giá tăng</string>
+        <string name="sap_xep_gia_giam_dan">Giá giảm</string>
+        <string name="sap_xep_do_cu">Đồ cũ</string>
+        <string name="sap_xep_do_moi">Đồ mới</string>
+        <string-array name="sp_sort">
+            <item>Tất cả</item>
+            <item>Giá tăng dần</item>
+            <item>Giá giảm dần</item>
+            <item>Đồ cũ</item>
+            <item>Đồ mới</item>
+        </string-array>
+
+        //Account Info
+        <string name="account_info">Thông tin tài khoản</string>
+        <string name="logout_text">Đăng xuất</string>
+        <string name="Back">Back</string>
+        <string name="Save">Save</string>
+        <string name="choose_from_gallery">Chọn hình trong máy</string>
+        <string name="open_camera">Chụp hình</string>
+        <string name="sp_da_ban">Số sản phẩm đã bán: X</string>
+        <string name="diem_thanh_vien">Điểm thành viên: X</string>
+        <string name="user_name">User Name:</string>
+        <string name="full_name">Họ tên:</string>
+        <string name="yeu_cau">Yêu cầu</string>
+
+        <string-array name="spn_gender">
+            <item>Nam</item>
+            <item>Nữ</item>
+        </string-array>
+
+        //User
+        <string name="tim_kiem">Tìm kiếm vd: xe hơi, điện thoại,... </string>
+        <string name="my_post">Bài viết đã đăng</string>
+        <string name="shop">Cửa hàng</string>
+        <string name="trading_history">Lịch sử giao dịch</string>
+        <string name="lich_su_don_hang">Lịch sử đơn hàng</string>
+        <string name="lich_su_don_ban">Lịch sử đơn bán</string>
+        <string name="wallet">Ví điện tử: 0đ</string>
+        <string name="current_commission">Commission:</string>
+        <string name="don_mua">Đơn mua</string>
+        <string name="don_ban">Đơn bán</string>
+        <string name="danh_gia_sp">Đánh giá sản phẩm</string>
+
+        //Admin
+        <string name="admin_tittle">Admin</string>
+        <string name="quan_li_danh_muc">Quản lý danh mục</string>
+        <string name="quan_li_bai_dang">Quản lý bài đăng</string>
+        <string name="thong_ke">Thống kê</string>
+        <string name="lich_su_giao_dich">Lịch sử giao dịch</string>
+        <string name="yeu_cau_tao_shop">Yêu cầu tạo shop</string>
+        <string name="so_lan_bi_report">Report: 0</string>
+        <string name="chi_tiet_shop">Chi tiết shop</string>
+        <string name="accepted">Chấp nhận</string>
+        <string name="deny">Từ chối</string>
+        <string name="yeu_cau_chuyen_khoan_user">Yêu cầu chuyển khoản</string>
+        <string name="quan_li_user">Danh sách user</string>
+        <string name="user_bi_report">User bị báo cáo</string>
+        <string name="quan_li_commission">Quản lí commission</string>
+        <string name="quy_trinh_xu_li">Quy trình xử lí:</string>
+        <string name="proccessing">Proccessing</string>
+        <string name="packing">Packing</string>
+        <string name="delivery">Delivery</string>
+        <string name="completed">Completed</string>
+        <string name="huy_don">Hủy đơn</string>
+        <string name="dang_ky_employee">Đăng ký nhân viên</string>
+        <string name="add_employee">Thêm nhân viên</string>
+        <string name="employee_management">Quản lí nhân viên</string>
+        <string name="loai_nhan_vien">Loại nhân viên:</string>
+        <string-array name="spn_loai_nv">
+            <item>Nhân viên quản lí</item>
+            <item>Shipper</item>
+        </string-array>
+        <string name="danh_sach_don_hang">Danh sách đơn hàng</string>
+        <string name="cac_don_dang_giao">Các đơn đang giao</string>
+        <string name="nhan_vien_giao_hang">Nhân viên giao hàng:</string>
+
+        //Wallet
+        <string name="nap_tien">Nạp tiền</string>
+        <string name="rut_tien">Rút tiền</string>
+        <string name="so_du">Số dư</string>
+        <string name="nhap_so_tien">Nhập số tiền muốn nạp: </string>
+        <string name="chuyen_so_tien">Nhập số tiền muốn chuyển: </string>
+        <string name="rut_so_tien">Nhập số tiền muốn rút: </string>
+        <string name="wallet_hint">VD: 100000, 150000s,...</string>
+        <string name="chuyen_khoan_name">Nhập username hoặc sdt của người cần chuyển</string>
+        <string name="chuyen_khoan_hint">VD: username, 05125125481,...</string>
+        <string name="xac_nhan">Confirm</string>
+
+        //Quan ly danh muc
+        <string name="danh_muc_hint">Tên danh mục</string>
+        <string name="them_danh_muc">Thêm</string>
+        <string name="xoa_danh_muc">Xóa</string>
+        <string name="sua_danh_muc">Sửa</string>
+        <string name="clear">Refresh</string>
+
+        //Tai khoan ngan hang
+        <string name="bank_account">Bank account</string>
+        <string name="chuyen_khoan">Chuyển khoản</string>
+        <string name="lien_ket_tai_khoan_ngan_hang">Liên kết tài khoản ngân hàng</string>
+        <string name="so_tai_khoan">Số tài khoản:</string>
+        <string name="so_tai_khoan_hint">Nhập số tài khoản có định dạng 12 số.</string>
+        <string name="ho_ten_chu_tk">Họ tên chủ tài khoản:</string>
+        <string name="ho_ten_chu_tk_hint">VD: Trần Văn A,....</string>
+        <string name="ten_ngan_hang">Tên ngân hàng:</string>
+        <string name="ten_ngan_hang_hint">VD: Sacombank, Agribank,...</string>
+
+        //New Post
+        <string name="dang_sp">Đăng sản phẩm</string>
+        <string name="ten_sp">Tên sản phẩm:</string>
+        <string name="ten_sp_hint">Nhập tên sản phẩm</string>
+        <string name="gia_tien">Giá tiền:</string>
+        <string name="gia_tien_hint">Nhập giá sản phẩm</string>
+        <string name="so_luong">Số lượng:</string>
+        <string name="so_luong_hint">Nhập số lượng sản phẩm</string>
+        <string name="phan_loai">Phân loại:</string>
+        <string name="mo_ta">Mô tả sản phẩm:</string>
+        <string-array name="spn_phan_loai">
+            <item>Đồ mới</item>
+            <item>Đồ cũ</item>
+        </string-array>
+        <string name="danh_muc">Danh mục:</string>
+        <string name="dang_bai">Post</string>
+        <string name="huy_bai">Clear</string>
+        <string name="ngay_dang">Ngày đăng: dd/MM/yyyy</string>
+
+        //Sản phâm
+        <string name="product_name">Tên sản phẩm</string>
+        <string name="product_price">120000vnđ</string>
+        <string name="product_condition">Tình trạng sản phẩm</string>
+        <string name="product_catalog">Danh mục</string>
+        <string name="product_quantity">Số lượng: 10</string>
+        <string name="product_detail">Chi tiết sản phẩm</string>
+        <string name="buy_product">Mua hàng</string>
+        <string name="go_to_shop">Xem trang</string>
+        <string name="shop_name">Tên shop</string>
+        <string name="product_description">Mô tả:</string>
+        <string name="product_review">Đánh giá sản phẩm</string>
+        <string name="one_star">1 sao</string>
+        <string name="two_star">2 sao</string>
+        <string name="three_star">3 sao</string>
+        <string name="four_star">4 sao</string>
+        <string name="five_star">5 sao</string>
+        <string name="all_star">Tất cả</string>
+        <string name="report">Report!</string>
+        <string name="dia_chi_dang">Địa chỉ đăng sản phẩm:</string>
+        <string name="dia_chi_dang_hint">Nhập địa chỉ đăng bán sản phẩm</string>
+        <string name="update">Cập nhật</string>
+        <string name="delete">Xóa</string>
+
+        //Shop
+        <string name="dang_ky_shop">Đăng ký shop</string>
+        <string name="ten_shop">Tên shop</string>
+        <string name="mo_ta_shop">Mô tả shop</string>
+        <string name="thong_tin_nguoi_ban">Thông tin người bán</string>
+        <string name="ngay_tham_gia">Ngày tham gia: dd/MM/yyyy</string>
+        <string name="dia_chi">Địa chỉ: 127 Võ Văn Ngân, Linh Chiểu, Thủ Đức, TP.HCM</string>
+        <string name="so_dt">Liên hệ: 0123456789</string>
+        <string name="thong_tin_nguoi_mua">Thông tin người mua</string>
+        <string name="do_cu">Đồ cũ</string>
+        <string name="do_moi">Đồ mới</string>
+        <string name="edit_shop">Sửa thông tin shop</string>
+
+        //Don Hang
+        <string name="phuong_thuc_thanh_toan">Phương thức thanh toán:</string>
+        <string name="thanh_toan_truc_tiep">Thanh toán trực tiếp</string>
+        <string name="thanh_toan_cod">Thanh toán COD</string>
+        <string name="thanh_toan_qua_vi">Thanh toán qua ví điện tử</string>
+        <string name="dat_hang">Đặt hàng</string>
+        <string name="xac_nhan_don_hang">Xác nhận đơn hàng</string>
+        <string name="ho_ten_nguoi_nhan">Họ tên người nhận:</string>
+        <string name="ho_ten_nguoi_ban">Họ tên người bán:</string>
+        <string name="ho_ten_nguoi_mua">Họ tên người mua:</string>
+        <string name="dia_chi_giao_hang">Địa chỉ giao hàng:</string>
+        <string name="dia_diem_giao_dich">Địa điểm giao dịch:</string>
+        <string name="sdt">Số điện thoại:</string>
+        <string name="refuse">Từ chối</string>
+        <string name="dia_chi_nguoi_mua">Địa chỉ người mua:</string>
+        <string name="tinh_trang">Pending</string>
+        <string name="hinh_anh_sp">Hình ảnh</string>
+        <string name="thong_tin_sp">Thông tin đơn hàng</string>
+        <string name="kieu_thanh_toan">Kiểu thanh toán</string>
+        <string name="tinh_trang_don_hang">Tình trạng đơn hàng</string>
+
+        //Comment review
+        <string name="so_sao_ban_muon_danh_gia">Số sao bạn muốn đánh giá:</string>
+        <string-array name="spn_star_level">
+            <item>1 sao</item>
+            <item>2 sao</item>
+            <item>3 sao</item>
+            <item>4 sao</item>
+            <item>5 sao</item>
+        </string-array>
+        <string name="comment">Đánh giá trải nghiệm sản phẩm: </string>
+        <string name="post_review">Đánh giá</string>
+        <string name="comment_user_name">Họ tên người đánh giá</string>
 </resources>
