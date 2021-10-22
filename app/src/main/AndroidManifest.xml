@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.chodocu_nhom3_cddd">
+    package="com.example.oldstuffmarket">
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,41 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ChoDoCu_Nhom3_CDDD">
+        android:theme="@style/Theme.OldStuffMarket">
+        <activity android:name=".UserShopActivity"></activity>
+        <activity android:name=".ShopMainActivity" />
+        <activity android:name=".CommissionActivity" />
+        <activity android:name=".OrderProccessingForSellerActivity" />
+        <activity android:name=".UserProductEditActivity" />
+        <activity android:name=".UserUploadedPostActivity" />
+        <activity android:name=".UserTransactionHistoryActivity" />
+        <activity android:name=".CommentActivity" />
+        <activity android:name=".WalletUserTransactionHistoryActivity" />
+        <activity android:name=".OrderThanhToanTrucTiepActivity" />
+        <activity android:name=".UserOrderConfirmActivity" />
+        <activity android:name=".DonBanActivity" />
+        <activity android:name=".DonMuaActivity" />
+        <activity android:name=".ThanhToanActivity" />
+        <activity android:name=".BuyActivity" />
+        <activity android:name=".YeuCauChuyenKhoanDetailActivity" />
+        <activity android:name=".YeuCauChuyenKhoanActivity" />
+        <activity android:name=".WalletUserActivity" />
+        <activity android:name=".SellerMainActivity" />
+        <activity android:name=".ShopRequestDetailActivity" />
+        <activity android:name=".ShopRegistrationRequestActivity" />
+        <activity android:name=".ShopRegistrationActivity" />
+        <activity android:name=".ProductDetailActivity" />
+        <activity android:name=".LienKetNganHangActivity" />
+        <activity android:name=".TaiKhoanNganHangActivity" />
+        <activity android:name=".QuanLyDanhMucActivity" />
+        <activity android:name=".WalletActivity" />
+        <activity android:name=".PasswordChangeActivity" />
+        <activity android:name=".AccountInfoActivity" />
+        <activity android:name=".AdminMainActivity" />
+        <activity android:name=".RegistrationActivity" />
+        <activity
+            android:name=".UserMainActivity"
+            android:label="@string/title_activity_user_main" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

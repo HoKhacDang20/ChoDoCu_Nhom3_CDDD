@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1085907953352",
+    "firebase_url": "https://projectbandoonline.firebaseio.com",
+    "project_id": "projectbandoonline",
+    "storage_bucket": "projectbandoonline.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1085907953352:android:2556d95d8442a1b7d2a7fd",
+        "android_client_info": {
+          "package_name": "com.example.chodocu_nhom3_cddd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1085907953352-9opq389ombctsgcf024ckv618ft34nv2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCow65s1tp_tFZADHiPrQzwI2V3E8upgMc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1085907953352-9opq389ombctsgcf024ckv618ft34nv2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
