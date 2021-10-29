@@ -7,27 +7,35 @@
     android:layout_height="match_parent"
     tools:context=".AdminMainActivity"
     android:orientation="vertical"
-    android:background="@mipmap/nenadmin">
+    android:background="@mipmap/nen_admin">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="3"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
+            android:gravity="center"
             android:padding="10dp">
-            <ImageView
-                android:id="@+id/imgAccount"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@mipmap/no_image_icon"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:cardCornerRadius="70dp">
+                <ImageView
+                    android:id="@+id/imgAccount"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/anh_trang"/>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:orientation="vertical"
             android:gravity="center">
             <TextView
@@ -37,18 +45,22 @@
                 android:text="@string/admin_tittle"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:textSize="20dp"/>
+                android:textSize="20sp"/>
             <Button
                 android:id="@+id/btnAccountInfo"
-                android:layout_width="wrap_content"
+                android:layout_width="175dp"
                 android:layout_height="wrap_content"
                 android:text="@string/account_info"
+                android:backgroundTint="#FF5252"
+                android:textSize="11sp"
                 android:textAllCaps="false" />
             <Button
                 android:id="@+id/btnPassWordChange"
-                android:layout_width="wrap_content"
+                android:layout_width="175dp"
                 android:layout_height="wrap_content"
-                android:text="@string/user_password_change"
+                android:text="@string/doi_mat_khau"
+                android:textSize="11sp"
+                android:backgroundTint="#FF5252"
                 android:textAllCaps="false"/>
         </LinearLayout>
     </LinearLayout>
@@ -58,17 +70,38 @@
         android:layout_height="0dp"
         android:layout_weight="8">
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_gravity="center_horizontal">
 
+            <Button
+                android:id="@+id/btnAddEmployee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#FF5252"
+                android:textSize="11sp"
+                android:text="@string/themnhanvien_admin"
+                android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btnEmployeeManagement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/quanli_nhanvien"
+                android:textSize="11sp"
+                android:textAllCaps="false"
+                android:backgroundTint="#FF5252"
+                android:layout_marginBottom="20dp"/>
 
             <Button
                 android:id="@+id/btnUserReported"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="#FF5252"
                 android:text="@string/quan_li_user"
+                android:textSize="11sp"
                 android:textAllCaps="false"
                 android:layout_marginBottom="20dp"/>
 
@@ -79,58 +112,102 @@
                 android:gravity="center"
                 android:layout_marginBottom="20dp">
                 <Button
-                    android:id="@+id/btnUserList"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/btnUserReport"
+                    android:layout_width="0dp"
+                    android:layout_weight="10"
+                    android:textSize="11sp"
+                    android:backgroundTint="#FF5252"
                     android:layout_height="wrap_content"
                     android:text="@string/user_bi_report"
                     android:textAllCaps="false"/>
 
                 <TextView
-                    android:id="@+id/txtUserReprtedNotify"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/txtUserReportedNotify"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="x"
                     android:textColor="#FFF"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:background="@drawable/shop_request_notification"/>
+                    android:visibility="gone"
+                    android:background="@drawable/thongbao_yeucau_taoshop"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="20dp">
+                <Button
+                    android:id="@+id/btnProductReport"
+                    android:layout_width="0dp"
+                    android:layout_weight="10"
+                    android:textSize="11sp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FF5252"
+                    android:text="Sản phẩm bị báo cáo"
+                    android:textAllCaps="false"/>
+
+                <TextView
+                    android:id="@+id/txtProductReprtedNotify"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="x"
+                    android:textColor="#FFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    android:background="@drawable/thongbao_yeucau_taoshop"/>
             </LinearLayout>
 
 
             <Button
                 android:id="@+id/btnQuanLyDanhMuc"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/quan_li_danh_muc"
                 android:textAllCaps="false"
-                android:layout_marginBottom="20dp"/>
-            <Button
-                android:id="@+id/btnCommissio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sản phẩm bị report"
-                android:textAllCaps="false"
+                android:textSize="11sp"
+                android:backgroundTint="#FF5252"
                 android:layout_marginBottom="20dp"/>
             <Button
                 android:id="@+id/btnCommission"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="#FF5252"
+                android:textSize="11sp"
                 android:text="@string/quan_li_commission"
                 android:textAllCaps="false"
                 android:layout_marginBottom="20dp"/>
             <Button
                 android:id="@+id/btnThongKe"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="#FF5252"
                 android:text="@string/thong_ke"
+                android:textAllCaps="false"
+                android:textSize="11sp"
+                android:layout_marginBottom="20dp"/>
+            <Button
+                android:id="@+id/btnLichSuDonHangShipper"
+                android:layout_width="match_parent"
+                android:backgroundTint="#FF5252"
+                android:textSize="11sp"
+                android:layout_height="wrap_content"
+                android:text="Tìm kiếm đơn hàng user"
                 android:textAllCaps="false"
                 android:layout_marginBottom="20dp"/>
             <Button
                 android:id="@+id/btnWallet"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:backgroundTint="#FF5252"
                 android:layout_height="wrap_content"
                 android:text="@string/wallet"
                 android:textAllCaps="false"
+                android:textSize="11sp"
                 android:layout_marginBottom="20dp"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -140,20 +217,25 @@
                 android:layout_marginBottom="20dp">
                 <Button
                     android:id="@+id/btnUserDepositMoney"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="10"
                     android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:backgroundTint="#FF5252"
                     android:text="@string/yeu_cau_chuyen_khoan_user"
                     android:textAllCaps="false"/>
 
                 <TextView
                     android:id="@+id/txtUserDepositMoneyNotify"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="x"
                     android:textColor="#FFF"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:background="@drawable/shop_request_notification"/>
+                    android:visibility="gone"
+                    android:background="@drawable/thongbao_yeucau_taoshop"/>
             </LinearLayout>
 
             <LinearLayout
@@ -163,33 +245,41 @@
                 android:gravity="center">
                 <Button
                     android:id="@+id/btnShopRegistration"
-                    android:layout_width="wrap_content"
+                    android:textSize="11sp"
+                    android:layout_width="0dp"
+                    android:layout_weight="10"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#FF5252"
                     android:text="@string/yeu_cau_tao_shop"
                     android:textAllCaps="false"/>
 
                 <TextView
                     android:id="@+id/txtNotify"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="x"
                     android:textColor="#FFF"
                     android:textSize="16sp"
+                    android:visibility="gone"
                     android:textStyle="bold"
-                    android:background="@drawable/shop_request_notification"/>
+                    android:background="@drawable/thongbao_yeucau_taoshop"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
+        android:layout_gravity="center"
         android:gravity="center_horizontal">
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="wrap_content"
+            android:backgroundTint="#FF5252"
+            android:textSize="11sp"
             android:layout_height="wrap_content"
             android:text="@string/logout_text"
             android:textAllCaps="false"/>

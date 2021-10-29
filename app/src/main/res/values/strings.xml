@@ -1,42 +1,52 @@
 <resources>
-    <string name="title_activity_user_main">MainActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">New post</string>
-    <string name="title_notifications">Setting</string>
+    <string name="app_name">chợ Đồ Cũ - Mua Sắm Online</string>
 
-    //Main Activity
+    //Dang nhap, Dang ky
     <string name="home">Home</string>
-    <string name="don_thanh_cong">Đơn bán thành công</string>
+    <string name="don_ban_thanh_cong">Đơn bán thành công</string>
     <string name="chi_tiet_giao_dich">Chi tiết giao dịch</string>
     <string name="comment_dh">Comment cho đơn hàng</string>
     <string name="chi_tiet_don_ban">Chi tiết đơn bán</string>
     <string name="don_dang_xl">Đơn bán đang xử lý</string>
-    <string name="app_name">Chợ Tốt - Bán đồ online</string>
-    <string name="login_text">Đăng nhập</string>
-    <string name="user_input_hint">User name</string>
-    <string name="cmnd_input_hint">Số CMND</string>
+    <string name="tieude_dangnhap">Đăng nhập</string>
+    <string name="username_hint">User name</string>
+    <string name="hoten_hint">Họ tên</string>
+    <string name="sdt_hint">Số điện thoại</string>
+    <string name="diachi_dangky_hint">Địa chỉ</string>
+    <string name="chungminhnhandan_hint">Số CMND</string>
     <string name="cmnd">Số CMND*</string>
+    <string name="so_cmnd">Số CMND</string>
     <string name="pass_input_hint">Mật khẩu</string>
-    <string name="registry_question">Bạn chưa có tài khoản?</string>
-    <string name="registry_link">Đăng ký ngay</string>
-    <string name="registry_label">Đăng ký tài khoản</string>
-    <string name="edit_label">Thông tin tài khoản</string>
-    <string name="user_password_change">Đổi mật khẩu</string>
-    <string name="registry_cancel">Bạn đã có tài khoản?</string>
-    <string name="registry_return">Đăng nhập ngay</string>
-    <string name="registry_btn">Đăng ký</string>
-    <string name="registry_username">User name*</string>
-    <string name="registry_name">Họ tên*</string>
-    <string name="registry_phone">Số điện thoại*</string>
-    <string name="registry_gender">Giới tính: </string>
-    <string name="registry_address">Địa chỉ*</string>
-    <string name="registry_password">Mật khẩu*</string>
-    <string name="user_old_password">Mật khẩu cũ*</string>
-    <string name="user_new_password">Mật khẩu mới*</string>
-    <string name="registry_confirm_pass">Xác nhận mật khẩu</string>
-    <string name="find">Tìm kiếm</string>
+    <string name="banchuacotk_dangky">Bạn chưa có tài khoản?</string>
+    <string name="dangkyngay_link">Đăng ký ngay</string>
+    <string name="tieude_dangky">Đăng ký tài khoản</string>
+    <string name="tieude_thongtintaikhoan">Thông tin tài khoản</string>
+    <string name="themnhanvien_admin">Thêm nhân viên</string>
+    <string name="doi_mat_khau">Đổi mật khẩu</string>
+    <string name="loai_nhanvien">Loại nhân viên</string>
+    <string name="bandaco_taikhoan">Bạn đã có tài khoản?</string>
+    <string name="dangnhap_taikhoan">Đăng nhập ngay</string>
+    <string name="button_dangnhap">Đăng nhập</string>
+    <string name="button_dangky">Đăng ký</string>
+    <string name="username_dangky">User name*</string>
+    <string name="hoten_dangky">Họ tên*</string>
+    <string name="sdt_dangky">Số điện thoại*</string>
+    <string name="gioitinh_dangky">Giới tính: </string>
+    <string name="diachi_dangky">Địa chỉ*</string>
+    <string name="matkhau_dangky">Mật khẩu*</string>
+    <string name="matkhaucu">Mật khẩu cũ*</string>
+    <string name="matkhaumoi">Mật khẩu mới*</string>
+    <string name="xacnhan_matkhau">Xác nhận mật khẩu</string>
+    <string name="timkiem_sp">Tìm kiếm</string>
+    <string name="quanli_nhanvien">Quản lí nhân viên</string>
+    <string-array name="spn_loai_nv">
+        <item>Nhân viên quản lí</item>
+    </string-array>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">New post</string>
+    <string name="title_notifications">Setting</string>
 
-    //Account Info
+    //Thong tin tai khoan
     <string name="account_info">Thông tin tài khoản</string>
     <string name="logout_text">Đăng xuất</string>
     <string name="Back">Back</string>
@@ -45,7 +55,7 @@
     <string name="open_camera">Chụp hình</string>
     <string name="sp_da_ban">Số sản phẩm đã bán: X</string>
     <string name="diem_thanh_vien">Điểm thành viên: X</string>
-    <string name="user_name">User Name:</string>
+    <string name="user_name">User Name</string>
     <string name="full_name">Họ tên:</string>
     <string name="yeu_cau">Yêu cầu</string>
 
@@ -81,6 +91,7 @@
     <string name="quan_li_user">Danh sách user</string>
     <string name="user_bi_report">User bị báo cáo</string>
     <string name="quan_li_commission">Quản lí commission</string>
+    <string name="hoahong">Hoa hồng</string>
     <string name="quy_trinh_xu_li">Quy trình xử lí:</string>
     <string name="proccessing">Proccessing</string>
     <string name="packing">Packing</string>
@@ -88,7 +99,7 @@
     <string name="completed">Completed</string>
     <string name="huy_don">Hủy đơn</string>
 
-    //Wallet
+    //Vi dien tu
     <string name="nap_tien">Nạp tiền</string>
     <string name="rut_tien">Rút tiền</string>
     <string name="so_du">Số dư</string>
@@ -118,7 +129,7 @@
     <string name="ten_ngan_hang">Tên ngân hàng:</string>
     <string name="ten_ngan_hang_hint">VD: Sacombank, Agribank,...</string>
 
-    //New Post
+    //Dang bai
     <string name="dang_sp">Đăng sản phẩm</string>
     <string name="ten_sp">Tên sản phẩm:</string>
     <string name="ten_sp_hint">Nhập tên sản phẩm</string>
@@ -137,7 +148,7 @@
     <string name="huy_bai">Clear</string>
     <string name="ngay_dang">Ngày đăng: dd/MM/yyyy</string>
 
-    //Sản phâm
+    //San pham
     <string name="product_name">Tên sản phẩm</string>
     <string name="product_price">120000vnđ</string>
     <string name="product_condition">Tình trạng sản phẩm</string>
@@ -149,6 +160,7 @@
     <string name="shop_name">Tên shop</string>
     <string name="product_description">Mô tả:</string>
     <string name="product_review">Đánh giá sản phẩm</string>
+    <string name="nhan_vien_giao_hang">Nhân viên giao hàng</string>
     <string name="one_star">1 sao</string>
     <string name="two_star">2 sao</string>
     <string name="three_star">3 sao</string>
@@ -160,6 +172,14 @@
     <string name="dia_chi_dang_hint">Nhập địa chỉ đăng bán sản phẩm</string>
     <string name="update">Cập nhật</string>
     <string name="delete">Xóa</string>
+
+    <string-array name="sanpham_loc">
+        <item>Tất cả</item>
+        <item>Giá tăng dần</item>
+        <item>Giá giảm dần</item>
+        <item>Đồ cũ</item>
+        <item>Đồ mới</item>
+    </string-array>
 
     //Shop
     <string name="dang_ky_shop">Đăng ký shop</string>
@@ -195,7 +215,7 @@
     <string name="kieu_thanh_toan">Kiểu thanh toán</string>
     <string name="tinh_trang_don_hang">Tình trạng đơn hàng</string>
 
-    //Comment review
+    //Danh gia san pham
     <string name="so_sao_ban_muon_danh_gia">Số sao bạn muốn đánh giá:</string>
     <string-array name="spn_star_level">
         <item>1 sao</item>

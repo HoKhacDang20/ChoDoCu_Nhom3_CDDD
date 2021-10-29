@@ -6,23 +6,57 @@
         <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/drawable/ic_launcher_background.xml" value="0.17222222222222222" />
         <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/drawable/layout_bg.xml" value="0.1962962962962963" />
         <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/drawable/login_button.xml" value="0.1962962962962963" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/drawable/nen_cuochen.xml" value="0.20277777777777778" />
         <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/drawable/shop_request_notification.xml" value="0.18796296296296297" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/account_info_layout.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/activity_layout.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/activity_login.xml" value="0.14" />
-        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/admin_main_layout.xml" value="0.18" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/admin_main_layout.xml" value="0.22" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/buy_layout.xml" value="0.16018518518518518" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/comment_adapter_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/commission_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/dangky_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/dangnhap_layout.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/danh_muc_adapter_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/doi_matkhau_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/don_ban_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/don_mua_adapter.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/don_mua_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/fragment_cai_dat.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/fragment_chuyen_khoan.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/fragment_home.xml" value="0.20437956204379562" />
         <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/fragment_nap_tien.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/fragment_new_post.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/fragment_rut_tien.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/fragment_settings.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/khoa_user_adapter.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/login_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/nguoiban_main_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/nhanvien__admin.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/password_change_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/product_detail_layout.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/registration_layout.xml" value="0.14537037037037037" />
         <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/san_pham_adapter_layout.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/seller_main_layout.xml" value="0.20833333333333334" />
-        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/shop_main_layout.xml" value="0.14907407407407408" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/shop_main_layout.xml" value="0.18" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/shop_registration_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/shop_registration_request_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/shop_request_adapter_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/shop_request_detail_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/tai_khoan_ngan_hang_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/thanh_toan_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/user_chinhsua_cuahang_layout.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/user_main_layout.xml" value="0.16" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/user_order_confirm_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/user_product_edit_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/user_shop_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/user_uploaded_post_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/wallet_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/wallet_user_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/wallet_user_transaction_history_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/yeu_cau_chuyen_khoan_adapter_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/yeu_cau_chuyen_khoan_detail_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/yeu_cau_chuyen_khoan_layout.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/THAYCAM/AndroidStudioProjects/ChoDoCu_Nhom3_CDDD/app/src/main/res/menu/bottom_nav_menu.xml" value="0.22" />
       </map>
     </option>

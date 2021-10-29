@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:paddingTop="10dp">
+    android:background="@drawable/nen_cuochen"
+    android:padding="10dp">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -14,13 +15,14 @@
         <ImageView
             android:id="@+id/imgSP"
             android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:src="@mipmap/no_image_icon"/>
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/anh_trang"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_weight="5"
+        android:layout_weight="6"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingLeft="10dp">
@@ -35,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/product_name"
-                android:textSize="15sp"/>
+                android:textSize="12sp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,24 +50,44 @@
                 android:layout_weight="3"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-                <TextView
-                    android:id="@+id/txtGiaSP"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/product_price"
-                    android:textStyle="bold"
-                    android:textColor="@color/red"
-                    android:textSize="17sp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/txtGiaSP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/product_price"
+                        android:textStyle="bold"
+                        android:textColor="@color/red"
+                        android:textSize="15sp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:gravity="bottom"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/txtNgayDang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ngay_dang"
+                        android:textStyle="bold"
+                        android:textSize="10sp"/>
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_weight="2"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/txtDanhMuc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="11sp"
                     android:text="@string/product_catalog"/>
             </LinearLayout>
         </LinearLayout>
