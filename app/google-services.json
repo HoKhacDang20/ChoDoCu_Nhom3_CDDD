@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "926354783444",
+    "firebase_url": "https://appchodocu-b8d78-default-rtdb.firebaseio.com",
+    "project_id": "appchodocu-b8d78",
+    "storage_bucket": "appchodocu-b8d78.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:926354783444:android:a63a4fc8f7354daecc0f41",
+        "android_client_info": {
+          "package_name": "com.example.chodocu_nhom3_cddd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "926354783444-i4i9bndhhjkruk4cc5n6pio3tncohcfd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCre1_9gKHcWLY2wWWlxczl7qbLR0M5-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "926354783444-i4i9bndhhjkruk4cc5n6pio3tncohcfd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:926354783444:android:990d7397ed150b07cc0f41",
+        "android_client_info": {
+          "package_name": "com.example.chodocu_ver1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "926354783444-i4i9bndhhjkruk4cc5n6pio3tncohcfd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCre1_9gKHcWLY2wWWlxczl7qbLR0M5-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "926354783444-i4i9bndhhjkruk4cc5n6pio3tncohcfd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
