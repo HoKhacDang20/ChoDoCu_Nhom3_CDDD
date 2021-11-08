@@ -1,8 +1,15 @@
 <resources>
     <string name="app_name">chợ Đồ Cũ - Mua Sắm Online</string>
 
+
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
     //Dang nhap, Dang ky
     <string name="home">Home</string>
+    <string name="btnDangNhap">Đăng nhập</string>
+    <string name="email_dangky">Email*</string>
     <string name="don_ban_thanh_cong">Đơn bán thành công</string>
     <string name="chi_tiet_giao_dich">Chi tiết giao dịch</string>
     <string name="comment_dh">Comment cho đơn hàng</string>
@@ -10,6 +17,8 @@
     <string name="don_dang_xl">Đơn bán đang xử lý</string>
     <string name="tieude_dangnhap">Đăng nhập</string>
     <string name="username_hint">User name</string>
+    <string name="cuphap_naptien">Cú pháp nạp tiền</string>
+    <string name="cuphap_naptien_hint">VD: Dang_NapTien_5000000</string>
     <string name="hoten_hint">Họ tên</string>
     <string name="sdt_hint">Số điện thoại</string>
     <string name="diachi_dangky_hint">Địa chỉ</string>
@@ -26,7 +35,6 @@
     <string name="loai_nhanvien">Loại nhân viên</string>
     <string name="bandaco_taikhoan">Bạn đã có tài khoản?</string>
     <string name="dangnhap_taikhoan">Đăng nhập ngay</string>
-    <string name="button_dangnhap">Đăng nhập</string>
     <string name="button_dangky">Đăng ký</string>
     <string name="username_dangky">User name*</string>
     <string name="hoten_dangky">Họ tên*</string>
@@ -39,8 +47,13 @@
     <string name="xacnhan_matkhau">Xác nhận mật khẩu</string>
     <string name="timkiem_sp">Tìm kiếm</string>
     <string name="quanli_nhanvien">Quản lí nhân viên</string>
+    <string name="dang_ky_employee">Đăng ký nhân viên</string>
+    cac_don_dang_giao
+    <string name="cac_don_dang_giao">Danh Sách Đơn Hàng</string>
+    <string name="danh_sach_don_hang">Danh Sách Đơn Hàng</string>
     <string-array name="spn_loai_nv">
         <item>Nhân viên quản lí</item>
+        <item>Shipper</item>
     </string-array>
     <string name="title_home">Home</string>
     <string name="title_dashboard">New post</string>
@@ -227,4 +240,6 @@
     <string name="comment">Đánh giá trải nghiệm sản phẩm: </string>
     <string name="post_review">Gửi đánh giá </string>
     <string name="comment_user_name">Họ tên người đánh giá</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

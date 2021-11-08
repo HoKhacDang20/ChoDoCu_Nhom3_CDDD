@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.chodocu_ver1">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    package="com.example.chodocu_ver1" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ChoDoCu_Ver1">
+        android:theme="@style/Theme.ChoDoCu_Ver1" >
+        <activity
+            android:name=".MessageActivity"
+            android:exported="false" />
         <activity android:name=".XoaSanPhamActivity" />
         <activity android:name=".ChiTietCuocHenActivity" />
         <activity android:name=".User_ChinhSua_CuocHenActivity" />
@@ -34,7 +39,9 @@
         <activity android:name=".ReportUserActivity" />
         <activity android:name=".UserLichSuDonBanActivity" />
         <activity android:name=".ChiTiet_SanPham_ReportActivity" />
-<!--        <activity android:name=".adapter.SanPhamBiBaoCaoAdapter" />-->
+        <activity android:name=".adapter.SanPhamBiBaoCaoAdapter" />
+        <activity android:name=".XuLyDonHang_NguoiBanActivity" />
+        <activity android:name=".AdminMainActivity" />
         <activity android:name=".SP_Report_admin_Activity" />
         <activity android:name=".Report_SP_Activity" />
         <activity android:name=".User_ChinhSua_CuaHangActivity" />
@@ -42,7 +49,18 @@
         <activity android:name=".UserCuaHangActivity" />
         <activity android:name=".CuaHang_MainActivity" />
         <activity android:name=".HoaHongActivity" />
-        <activity android:name=".XuLyDonHang_NguoiBanActivity" />
+        <activity android:name=".ShipperDanhSachActivity" />
+        <activity android:name=".ShipperDetailDonDaDongGoiActivity" />
+        <activity android:name=".ShipperDonDaDongGoiActivity" />
+        <activity android:name=".ShipperDonDangGiaoActivity" />
+        <activity android:name=".ShipperDonHoanTatActivity" />
+        <activity android:name=".ShipperDonHoanTatDetailActivity" />
+        <activity android:name=".ShipperDSDonGiaoShipperActivity" />
+        <activity android:name=".ShipperLichSuChiTietDonGiaoActivity" />
+        <activity android:name=".ShipperLichSuDonGiaoActivity" />
+        <activity android:name=".ShipperMainActivity" />
+        <activity android:name=".ShipperSelectingActivity" />
+        <activity android:name=".ShipperXuLiDonHangActivity" />
         <activity android:name=".User_ChinhSua_SanPhamActivity" />
         <activity android:name=".User_Bai_TaiLenActivity" />
         <activity android:name=".User_LichSu_GiaoDichActivity" />
@@ -65,12 +83,14 @@
         <activity android:name=".QuanLyDanhMucActivity" />
         <activity android:name=".DoiMatKhauActivity" />
         <activity android:name=".ThongTinTaiKhoanActivity" />
-        <activity android:name=".AdminMainActivity" />
+        <activity android:name=".ThemNhanVienActivity" />
         <activity android:name=".DangKyActivity" />
+        <activity android:name=".MessageMain" />
+        <activity android:name=".ViDienTu_UserActivity" />
         <activity
             android:name=".UserMainActivity"
             android:label="@string/title_dashboard" />
-        <activity android:name=".DangNhapActivity">
+        <activity android:name=".DangNhapActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
