@@ -84,7 +84,7 @@ public class AdminMainActivity extends AppCompatActivity {
         productReportArrayList = new ArrayList<>();
         userReportArrayList = new ArrayList<>();
 
-//        btnLogout.setOnClickListener(logoutClick);
+//        btnLogout.setOnClickListener(SettingsFragmentlogoutClick);
 //        btnAccountInfo.setOnClickListener(accountInfoClick);
 //        btnPassWordChange.setOnClickListener(passwordChangeClick);
 //        btnQuanLyDanhMuc.setOnClickListener(danhMucClick);
