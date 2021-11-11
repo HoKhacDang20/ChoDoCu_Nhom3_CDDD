@@ -49,6 +49,7 @@ apply plugin: 'com.google.gms.google-services'
 dependencies {
 
 
+    implementation 'com.google.firebase:firebase-auth:21.0.1'
     implementation 'com.google.firebase:firebase-storage:20.0.0'
     implementation 'androidx.navigation:navigation-ui:2.3.5'
     implementation 'androidx.navigation:navigation-fragment:2.3.5'
