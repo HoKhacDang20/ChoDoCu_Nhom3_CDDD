@@ -11,6 +11,7 @@
     <string name="tieude_dangnhap">Đăng nhập</string>
     <string name="username_hint">User name</string>
     <string name="hoten_hint">Họ tên</string>
+    <string name="email_dangky">Email</string>
     <string name="sdt_hint">Số điện thoại</string>
     <string name="diachi_dangky_hint">Địa chỉ</string>
     <string name="chungminhnhandan_hint">Số CMND</string>
@@ -226,5 +227,6 @@
     <string name="comment">Đánh giá trải nghiệm sản phẩm: </string>
     <string name="post_review">Gửi đánh giá </string>
     <string name="comment_user_name">Họ tên người đánh giá</string>
+    <string name="title_activity_user_main">UserMainActivity</string>
 
 </resources>

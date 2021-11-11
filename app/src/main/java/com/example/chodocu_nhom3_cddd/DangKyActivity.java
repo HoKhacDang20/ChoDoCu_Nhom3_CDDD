@@ -18,7 +18,12 @@ import android.widget.Toast;
 
 import com.example.chodocu_nhom3_cddd.data_models.HoaHong;
 import com.example.chodocu_nhom3_cddd.data_models.UserData;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,14 +38,15 @@ import java.util.Date;
 import java.util.regex.Pattern;
 
 public class DangKyActivity extends AppCompatActivity {
-
-    private DatabaseReference databaseReference; //tạo liên kết firebase
+    //private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();//tạo liên kết firebase
     private TextView txtRegistryReturn;//link quay lại trang đăng nhập
-    private EditText edtUserName, edtFullName, edtSDT, edtDiaChi, edtPass, edtPassConfirm, edtSoCMND;// các trường nhập thông tin tài khoản
+    private EditText edtEmail, edtUserName, edtFullName, edtSDT, edtDiaChi, edtPass, edtPassConfirm, edtSoCMND;// các trường nhập thông tin tài khoản
     private Spinner spnGender;//Spinner giới tính user
     private Button btnRegistry;//nút đăng ký
-    private String UserName = "", FullName = "", SDT = "", DiaChi = "", Pass = "", PassConfirm = "", Gender = "", SoCMND = "";//các biến lưu thông tin như user name, full name,...
+    private String UserName = "", FullName = "", SDT = "", DiaChi = "", Pass = "", Email = "", PassConfirm = "", Gender = "", SoCMND = "";//các biến lưu thông tin như user name, full name,...
     private int iPermission = 1;//permission của user mặc định là 1
+    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private ArrayList<UserData> userList;//khai báo danh sách user
     private ArrayList<UserData> blackList;
     private static final String USERNAME_PATTERN = "^[a-z0-9]{3,8}$";//kiểm tra user name nhập vào
@@ -60,16 +66,15 @@ public class DangKyActivity extends AppCompatActivity {
         edtSDT = findViewById(R.id.edtSDT);
         edtDiaChi = findViewById(R.id.edtDiaChi);
         edtPass = findViewById(R.id.edtPassword);
+        edtEmail = findViewById(R.id.edtEmail);
         edtPassConfirm = findViewById(R.id.edtPasswordConfirm);
         edtSoCMND = findViewById(R.id.edtSoCMND);
         btnRegistry = findViewById(R.id.btnRegistry);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-
         userList = new ArrayList<UserData>();//tạo mới user list
         blackList = new ArrayList<UserData>();
 
-        databaseReference.child("User").addValueEventListener(new ValueEventListener() {// lọc dữ liệu trong mục User
+        mDatabase.child("User").addValueEventListener(new ValueEventListener() {// lọc dữ liệu trong mục User
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
@@ -82,7 +87,7 @@ public class DangKyActivity extends AppCompatActivity {
 
             }
         });
-        databaseReference.child("BlackList").addValueEventListener(new ValueEventListener() {// lọc dữ liệu trong mục User
+        mDatabase.child("BlackList").addValueEventListener(new ValueEventListener() {// lọc dữ liệu trong mục User
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
@@ -112,11 +117,11 @@ public class DangKyActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        databaseReference.child("Commission").addChildEventListener(new ChildEventListener() {// lọc dữ liệu trong mục commission
+        mDatabase.child("Commission").addChildEventListener(new ChildEventListener() {// lọc dữ liệu trong mục commission
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 if(snapshot.getValue(HoaHong.class).getId().equals("-MKyZZdaQ3ucidlxPkUV")){
-                    userCommission = snapshot.getValue(HoaHong.class).getUserHoaHong();// đưa thông tin commission vào danh sách
+                    userCommission = snapshot.getValue(HoaHong.class).getUserCommission();// đưa thông tin commission vào danh sách
                 }
             }
 
@@ -155,6 +160,15 @@ public class DangKyActivity extends AppCompatActivity {
         }
         return true;
     }
+
+//    public boolean emailCheck(ArrayList<UserData> userList, String sEmail){// kiểm tra sdt có tồn tại trên csdl hay chưa
+//        for(UserData user : userList){
+//            if(user.getEmail().equals(sEmail)){
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
 
     public boolean SoCMNDCheck(ArrayList<UserData> userList, String soCMND){// kiểm tra sdt có tồn tại trên csdl hay chưa
         for(UserData user : userList){
@@ -203,6 +217,27 @@ public class DangKyActivity extends AppCompatActivity {
             Pass = edtPass.getText().toString();
             PassConfirm = edtPassConfirm.getText().toString();
             Gender = spnGender.getSelectedItem().toString();
+            Email = edtEmail.getText().toString();
+
+
+//            mAuth.createUserWithEmailAndPassword("nhanvien@gmail.com","0123456").addOnCompleteListener(DangKyActivity.this, new OnCompleteListener<AuthResult>() {
+//                @Override
+//                public void onComplete(@NonNull Task<AuthResult> task) {
+//
+//                    if (task.isSuccessful()) {
+//                        // Sign in success, update UI with the signed-in user's information
+//                        FirebaseUser user = mAuth.getCurrentUser();
+//                        Toast.makeText(DangKyActivity.this, "Đăng ký tài khoản thành công",
+//                                Toast.LENGTH_SHORT).show();
+//
+//                    } else {
+//                        // If sign in fails, display a message to the user.
+//                        Toast.makeText(DangKyActivity.this, "Lỗi email chưa chính xác",
+//                                Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//            });
+
             if(UserName.isEmpty()){//kiểm tra user có nhập hay chưa
                 edtUserName.setError("Bạn chưa nhập user name!");
             }
@@ -218,9 +253,18 @@ public class DangKyActivity extends AppCompatActivity {
                     }
                 }).show();
             }
-            else if(UserNameCheck(userList,UserName) == false){//kiểm tra user có tồn tại hay không
+//            else if(emailCheck(userList,edtEmail.getText().toString()) == false){
+//                AlertDialog.Builder alert = new AlertDialog.Builder(v.getContext());
+//                alert.setMessage("Số CMND đã tồn tại trong hệ thống!").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//
+//                    }
+//                }).show();
+//            }
+            else if(UserNameCheck(userList,Email) == false){//kiểm tra user có tồn tại hay không
                 AlertDialog.Builder alert = new AlertDialog.Builder(v.getContext());
-                alert.setMessage("Username đã tồn tại trong hệ thống!").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                alert.setMessage("Email đã tồn tại trong hệ thống!").setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -254,7 +298,10 @@ public class DangKyActivity extends AppCompatActivity {
             else if(SDT.length() > 11 || SDT.length() < 10){//kiểm tra SDT có hợp lệ không
                 edtSDT.setError("Bạn nhập sai số điện thoại!");
             }
-            else if(sdtCheck(userList,edtSDT.getText().toString()) == false){//kiểm tra SDT đã tồn tại chưa
+//            else if(Email.isEmpty()){//kiểm tra họ tên có nhập hay chưa
+//                edtEmail.setError("Bạn chưa nhập Email!");
+//            }
+            /*else if(sdtCheck(userList,edtSDT.getText().toString()) == false){//kiểm tra SDT đã tồn tại chưa
                 AlertDialog.Builder alert = new AlertDialog.Builder(v.getContext());
                 alert.setMessage("Số điện thoại đã tồn tại trong hệ thống!").setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
@@ -262,7 +309,7 @@ public class DangKyActivity extends AppCompatActivity {
 
                     }
                 }).show();
-            }
+            }*/
             else if (blackListSdtCheck(blackList, edtSDT.getText().toString()) == false) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(v.getContext());
                 alert.setMessage("Số điện thoại đã tồn tại trong danh sách đen!").setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -293,12 +340,7 @@ public class DangKyActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which){
                             case DialogInterface.BUTTON_POSITIVE:
-                                Toast.makeText(DangKyActivity.this, "Tạo tài khoản thành công!", Toast.LENGTH_SHORT).show();// thông báo tạo tài khoản thành công
-                                UserData user = new UserData();
-                                CreateUser(UserName, FullName, SDT, Gender, DiaChi, Pass,SoCMND, iPermission);//chạy hàm tạo mới user và đưa user vào firebase
-                                Intent intent = new Intent(DangKyActivity.this, DangNhapActivity.class);// quay trở lại trang đăng nhập
-                                finish();// đóng trang
-                                startActivity(intent);
+                                CreateUser(UserName, FullName, SDT, Email, Gender, DiaChi, Pass, SoCMND, iPermission);
                                 break;
                             case DialogInterface.BUTTON_NEGATIVE:
                                 return;
@@ -310,20 +352,37 @@ public class DangKyActivity extends AppCompatActivity {
                 alert.setMessage("Xác nhận đúng thông tin đăng ký tài khoản?").setNegativeButton("No", dialog).setPositiveButton("Yes", dialog).show();
 
             }
+
         }
     };
-    private void CreateUser(String sUserName, String sFullName, String sSdt, String sGioiTinh, String sDiaChi, String sPassword,String soCMND, int iPermission){// hàm tạo mới user và đưa vào firebase
+    private void CreateUser(String sUserName, String sFullName, String sSdt, String email, String sGioiTinh, String sDiaChi, String sPassword,String soCMND, int iPermission){// hàm tạo mới user và đưa vào firebase
 
-        String sKey = databaseReference.push().getKey();
+        mAuth.createUserWithEmailAndPassword(email,sPassword).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
 
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");// định dạng ngày
-        Date date = new Date();// lấy ngày hiện tại trong hệ thống
+                if (task.isSuccessful()) {
+                    // Sign in success, update UI with the signed-in user's information
 
-        UserData user = new UserData(sUserName,"", sFullName, sSdt, sGioiTinh, sDiaChi, sPassword, "",sKey, dateFormat.format(date),soCMND, iPermission, userCommission, 0, 0, 0, 0, 0);// tạo mới user
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    Toast.makeText(DangKyActivity.this, "Đăng ký tài khoản thành công",
+                            Toast.LENGTH_SHORT).show();
+                    String userID = user.getUid();
 
-        databaseReference.child("User").child(sKey).setValue(user);//đưa user mới vào firebase
+                    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");// định dạng ngày
+                    Date date = new Date();// lấy ngày hiện tại trong hệ thống
+
+                    UserData userData = new UserData(sUserName,"", sFullName, sSdt, sGioiTinh, sDiaChi, sPassword, "",userID, dateFormat.format(date),soCMND, email, iPermission, userCommission, 0, 0, 0, 0, 0);// tạo mới user
+                    mDatabase = FirebaseDatabase.getInstance().getReference();
+                    mDatabase.child("User").child(userID).setValue(userData);
+                    finish();
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Toast.makeText(DangKyActivity.this, "Lỗi email chưa chính xác",
+                            Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
     }
-
-
-
 }

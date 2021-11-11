@@ -2,16 +2,18 @@ package com.example.chodocu_nhom3_cddd.data_models;
 
 public class HoaHong {
     private String id;
-    private int userHoaHong;
-    private int shopHoaHong;
+    private int userCommission;
+    private int shopCommission;
+    private int shipperCommission;
 
     public HoaHong() {
     }
 
-    public HoaHong(String id, int userHoaHong, int shopHoaHong) {
+    public HoaHong(String id, int userCommission, int shopCommission, int shipperCommission) {
         this.id = id;
-        this.userHoaHong = userHoaHong;
-        this.shopHoaHong = shopHoaHong;
+        this.userCommission = userCommission;
+        this.shopCommission = shopCommission;
+        this.shipperCommission = shipperCommission;
     }
 
     public String getId() {
@@ -22,19 +24,27 @@ public class HoaHong {
         this.id = id;
     }
 
-    public int getUserHoaHong() {
-        return userHoaHong;
+    public int getUserCommission() {
+        return userCommission;
     }
 
-    public void setUserHoaHong(int userHoaHong) {
-        this.userHoaHong = userHoaHong;
+    public void setUserCommission(int userCommission) {
+        this.userCommission = userCommission;
     }
 
-    public int getShopHoaHong() {
-        return shopHoaHong;
+    public int getShopCommission() {
+        return shopCommission;
     }
 
-    public void setShopHoaHong(int shopHoaHong) {
-        this.shopHoaHong = shopHoaHong;
+    public void setShopCommission(int shopCommission) {
+        this.shopCommission = shopCommission;
+    }
+
+    public int getShipperCommission() {
+        return shipperCommission;
+    }
+
+    public void setShipperCommission(int shipperCommission) {
+        this.shipperCommission = shipperCommission;
     }
 }
