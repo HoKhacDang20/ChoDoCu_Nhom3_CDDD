@@ -1,7 +1,11 @@
 package com.example.chodocu_nhom3_cddd.data_models;
 
 public class UserData {
-    public UserData(String userName, String shopID, String hoTen, String soDienThoai, String gioiTinh, String diaChi, String password, String image, String userID, String ngayThamGia, String soCMND, int permission, int hoaHong, int tinhTrang, int soSPDaBan, int diemThanhVien, int report, long money) {
+    private String userName, shopID, hoTen, soDienThoai, gioiTinh, diaChi, password, image, userID, ngayThamGia, soCMND, email;
+    private int permission, hoaHong, tinhTrang, soSPDaBan, diemThanhVien, report;
+    private long money;
+
+    public UserData(String userName, String shopID, String hoTen, String soDienThoai, String gioiTinh, String diaChi, String password, String image, String userID, String ngayThamGia, String soCMND, String email, int permission, int hoaHong, int tinhTrang, int soSPDaBan, int diemThanhVien, int report, long money) {
         this.userName = userName;
         this.shopID = shopID;
         this.hoTen = hoTen;
@@ -13,6 +17,7 @@ public class UserData {
         this.userID = userID;
         this.ngayThamGia = ngayThamGia;
         this.soCMND = soCMND;
+        this.email = email;
         this.permission = permission;
         this.hoaHong = hoaHong;
         this.tinhTrang = tinhTrang;
@@ -22,13 +27,8 @@ public class UserData {
         this.money = money;
     }
 
-    private String userName, shopID, hoTen, soDienThoai, gioiTinh, diaChi, password, image, userID, ngayThamGia, soCMND;
-    private int permission, hoaHong, tinhTrang, soSPDaBan, diemThanhVien, report;
-    private long money;
-
     public UserData() {
     }
-
 
 
     public String getUserName() {
@@ -173,5 +173,13 @@ public class UserData {
 
     public void setMoney(long money) {
         this.money = money;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

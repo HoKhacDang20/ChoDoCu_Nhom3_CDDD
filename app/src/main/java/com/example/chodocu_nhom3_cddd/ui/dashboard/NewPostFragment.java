@@ -13,34 +13,20 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.chodocu_nhom3_cddd.R;
-import com.example.chodocu_nhom3_cddd.databinding.FragmentDashboardBinding;
 
-public class DashboardFragment extends Fragment {
+
+public class NewPostFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
-    private FragmentDashboardBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
                 new ViewModelProvider(this).get(DashboardViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        View view = inflater.inflate(R.layout.fragment_dang_bai, container, false);
 
-        final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-        return root;
-    }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+        return view;
     }
 }
