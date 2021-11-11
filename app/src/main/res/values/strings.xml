@@ -226,5 +226,6 @@
     <string name="comment">Đánh giá trải nghiệm sản phẩm: </string>
     <string name="post_review">Gửi đánh giá </string>
     <string name="comment_user_name">Họ tên người đánh giá</string>
+    <string name="title_activity_user_main">UserMainActivity</string>
 
 </resources>
