@@ -60,7 +60,7 @@
 
                     <Button
                         android:id="@+id/btnChooseFromGallery"
-                        android:layout_width="200dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:text="@string/choose_from_gallery"
@@ -70,7 +70,7 @@
 
                     <Button
                         android:id="@+id/btnOpenCamera"
-                        android:layout_width="200dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#FF6E40"
                         android:textSize="11sp"
@@ -82,7 +82,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginTop="50dp"
                 android:layout_weight="45"
                 android:orientation="vertical">
                 <LinearLayout
@@ -94,8 +93,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/ten_shop"
-                        android:textStyle="bold|italic"
-                        android:textSize="25dp"></TextView>
+                        android:textStyle="bold"
+                        android:textSize="20dp"></TextView>
 
                     <EditText
                         android:id="@+id/edtTenShop"
@@ -113,9 +112,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textStyle="bold|italic"
-                        android:textSize="25dp"
-                        android:text="@string/mo_ta_shop" />
+                        android:textStyle="bold"
+                        android:text="@string/mo_ta_shop"
+                        android:textSize="20dp"/>
 
                     <EditText
                         android:id="@+id/edtMoTaShop"
