@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserTaoLichHenActivity"
+    android:padding="10dp"
+    android:background="@mipmap/nen_muahang">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/nen_cuochen"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="5"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Tạo cuộc hẹn"
+                    android:textSize="30dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="60"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tiêu đề cuộc hẹn:"
+                        android:textStyle="bold"
+                        android:textSize="20dp"></TextView>
+
+                    <EditText
+                        android:id="@+id/edtTieuDe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nhập tiêu đề..."
+                        android:singleLine="true"/>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ngày hẹn:"
+                    android:textStyle="bold"
+                    android:textSize="20dp"></TextView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/edtNgayHen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Chọn ngày hẹn"
+                        android:editable="false"
+                        android:singleLine="true"
+                        android:layout_marginRight="30dp"/>
+
+                    <Button
+                        android:id="@+id/btnChonNgay"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#FF6E40"
+                        android:textSize="11sp"
+                        android:layout_marginLeft="45dp"
+                        android:text="Chọn ngày"
+                        android:textAllCaps="false"/>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Người cần gặp mặt:"
+                    android:textStyle="bold"
+                    android:textSize="20dp"></TextView>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/edtNguoiCanGap"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="VD: Nguyễn Văn A,..."
+                        android:editable="false"
+                        android:singleLine="true"
+                        android:layout_marginRight="30dp"/>
+                    <Button
+                        android:id="@+id/btnTimUser"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="11sp"
+                        android:text="Tìm user"
+                        android:backgroundTint="#FF6E40"
+                        android:textAllCaps="false"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chi tiết cuộc hẹn:"
+                        android:textStyle="bold"
+                        android:textSize="20dp"/>
+
+                    <EditText
+                        android:id="@+id/edtChiTietCuocHen"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:gravity="top"/>
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="10dp">
+                <Button
+                    android:id="@+id/btnCreate"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FF6E40"
+                    android:textSize="11sp"
+                    android:textAllCaps="false"
+                    android:text="Lên lịch"/>
+                <Button
+                    android:id="@+id/btnBack"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Back"
+                    android:backgroundTint="#FF6E40"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="11sp"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="10dp"/>
+                <Button
+                    android:id="@+id/btnClear"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FF6E40"
+                    android:textAllCaps="false"
+                    android:textSize="11sp"
+                    android:text="@string/huy_bai"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
