@@ -97,6 +97,7 @@ public class ThongTinTaiKhoanActivity extends AppCompatActivity {
 
             }
         });
+
         if(getIntent().getExtras() != null){
             sUserName = getIntent().getExtras().getString("UserName");
             edtUserName.setText(sUserName);

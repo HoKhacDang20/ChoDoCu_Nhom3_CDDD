@@ -74,8 +74,6 @@ public class DoiMatKhauActivity extends AppCompatActivity {
 
         btnBack.setOnClickListener(backClick);
         btnPasswordSave.setOnClickListener(saveClick);
-
-
     }
 
     @Override
