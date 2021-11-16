@@ -13,9 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-
-import com.example.chodocu_nhom3_cddd.adapter.UserBiBaoCaoAdapter;
-import com.example.chodocu_nhom3_cddd.data_models.UserReport;
+import com.example.chodocu_ver1.adapter.UserBiBaoCaoAdapter;
+import com.example.chodocu_ver1.data_models.UserReport;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -92,7 +91,7 @@ public class Report_User_Admin_Activity extends AppCompatActivity {
         gridReportUser.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //intent = new Intent(view.getContext(), UserChiTietReportActivity.class);
+                intent = new Intent(view.getContext(), UserChiTietReportActivity.class);
                 intent.putExtra("ReportID", userReportArrayList.get(position).getReportID());
                 intent.putExtra("UserID", userReportArrayList.get(position).getDoiTuongReportID());
                 intent.putExtra("sUserID", userReportArrayList.get(position).getUserTaoReportID());
