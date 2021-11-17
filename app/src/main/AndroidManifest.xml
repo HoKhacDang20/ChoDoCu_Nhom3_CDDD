@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChoDoCu_Nhom3_CDDD">
         <activity
+            android:name=".User_ChinhSua_SanPhamActivity"
+            android:exported="true" />
+        <activity
             android:name=".User_Bai_TaiLenActivity"
             android:exported="true" />
         <activity
