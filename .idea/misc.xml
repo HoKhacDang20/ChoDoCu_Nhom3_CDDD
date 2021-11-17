@@ -11,9 +11,16 @@
         <entry key="..\:/AndroidProject/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/dangnhap_layout.xml" value="0.11203703703703703" />
         <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/drawable/nen_cuochen.xml" value="0.2703125" />
         <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/activity_dang_ky.xml" value="0.264" />
+        <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/don_ban_layout.xml" value="0.12681159420289856" />
+        <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/don_mua_adapter_layout.xml" value="0.12360688956433637" />
+        <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/don_mua_layout.xml" value="0.12360688956433637" />
+        <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/fragment_dang_bai.xml" value="0.12360688956433637" />
         <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/fragment_dashboard.xml" value="0.13903985507246377" />
         <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/fragment_home.xml" value="0.13903985507246377" />
         <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/fragment_notifications.xml" value="0.13903985507246377" />
+        <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/san_pham_adapter_layout.xml" value="0.12360688956433637" />
+        <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/user_bai_tai_len_layout.xml" value="0.12360688956433637" />
+        <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/user_chinh_sua_san_pham_layout.xml" value="0.12360688956433637" />
         <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/user_main_layout.xml" value="0.13903985507246377" />
         <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
       </map>
