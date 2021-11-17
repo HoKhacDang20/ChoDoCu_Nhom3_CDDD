@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChoDoCu_Nhom3_CDDD">
         <activity
+            android:name=".DonBanActivity"
+            android:exported="true" />
+        <activity
             android:name=".DonMuaActivity"
             android:exported="true" />
         <activity
