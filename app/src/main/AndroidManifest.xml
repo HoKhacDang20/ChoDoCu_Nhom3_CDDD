@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChoDoCu_Nhom3_CDDD">
         <activity
+            android:name=".Report_SP_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".User_XacNhan_DatHangActivity"
+            android:exported="true" />
+        <activity
             android:name=".DonBanActivity"
             android:exported="true" />
         <activity
