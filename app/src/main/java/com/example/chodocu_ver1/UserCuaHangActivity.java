@@ -104,17 +104,9 @@ public class UserCuaHangActivity extends AppCompatActivity {
 //                    Toast.makeText(UserCuaHangActivity.this, userID, Toast.LENGTH_SHORT).show();
 
                     //sanPhamArrayList.add(snapshot.getValue(SanPham.class));
-                    if(snapshot.getValue(SanPham.class).getUserID() != null){
-                        if(snapshot.getValue(SanPham.class).getUserID().equals(userID)){
-                            sanPhamArrayList.add(snapshot.getValue(SanPham.class));
-                        }
+                    if(snapshot.getValue(SanPham.class).getUserID().equals(userID)){
+                        sanPhamArrayList.add(snapshot.getValue(SanPham.class));
                     }
-                    else {
-                        Toast.makeText(UserCuaHangActivity.this, "Null", Toast.LENGTH_SHORT).show();
-                    }
-//                    if(snapshot.getValue(SanPham.class).getUserID().equals(userID)){
-//                        sanPhamArrayList.add(snapshot.getValue(SanPham.class));
-//                    }
                 }
 
                 @Override

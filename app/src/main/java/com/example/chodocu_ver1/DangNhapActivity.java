@@ -184,30 +184,33 @@ public class DangNhapActivity extends AppCompatActivity {
 
                             firebaseUser = firebaseAuth.getCurrentUser();
                             if (firebaseUser != null) {
-                                UserMainActivity.user = firebaseUser;
+
+
                                 //Intent intent = new Intent();
                                 edtLoginPass.setText("");
-                                Toast.makeText(DangNhapActivity.this, "Dang nhap thanh cong", Toast.LENGTH_LONG).show();
+                                Toast.makeText(DangNhapActivity.this, "Đăng nhập thành công", Toast.LENGTH_LONG).show();
                               //startActivity(intent);
 
                                 databaseReference.child("User").addChildEventListener(new ChildEventListener() {
                                     @Override
                                     public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                                        if(snapshot.getValue(UserData.class).getUserID().equals(UserMainActivity.user.getUid()) && snapshot.getValue(UserData.class).getPassword().equals(password) && snapshot.getValue(UserData.class).getTinhTrang() == 0){
+                                        if(snapshot.getValue(UserData.class).getUserID().equals(firebaseUser.getUid()) && snapshot.getValue(UserData.class).getPassword().equals(password) && snapshot.getValue(UserData.class).getTinhTrang() == 0){
                                             iCount++;
                                             if(snapshot.getValue(UserData.class).getPermission() == Permission.ADMIN || snapshot.getValue(UserData.class).getPermission() == Permission.NHANVIEN){
-                                                    Intent intent = new Intent(DangNhapActivity.this, AdminMainActivity.class);//chuyển đến trang admin
-                                                    intent.putExtra("UserName", edtLoginName.getText().toString());
-                                                    startActivity(intent);
-                                            }
-                                            else if(snapshot.getValue(UserData.class).getPermission() == Permission.USER){
-                                                Intent intent = new Intent(DangNhapActivity.this, UserMainActivity.class);//chuyển đến trang admin
+                                                AdminMainActivity.user = firebaseUser;
+                                                Intent intent = new Intent(DangNhapActivity.this, AdminMainActivity.class);//chuyển đến trang admin
                                                 intent.putExtra("UserName", edtLoginName.getText().toString());
                                                 startActivity(intent);
                                             }
-                                            else if(snapshot.getValue(UserData.class).getPermission() == Permission.SHIPPER || snapshot.getValue(UserData.class).getPermission() == Permission.SHIPPER1){//nếu kết quả đăng nhập == 4
-
-                                                intent = new Intent(DangNhapActivity.this, ShipperMainActivity.class);//chuyển đến trang user
+                                            else if(snapshot.getValue(UserData.class).getPermission() == Permission.USER){
+                                                UserMainActivity.user = firebaseUser;
+                                                Intent intent = new Intent(DangNhapActivity.this, UserMainActivity.class);//chuyển đến trang user
+                                                intent.putExtra("UserName", edtLoginName.getText().toString());
+                                                startActivity(intent);
+                                            }
+                                            else if(snapshot.getValue(UserData.class).getPermission() == Permission.SHIPPER){//nếu kết quả đăng nhập == 4
+                                                ShipperMainActivity.user = firebaseUser;
+                                                Intent intent = new Intent(DangNhapActivity.this, ShipperMainActivity.class);//chuyển đến trang user
                                                 intent.putExtra("UserName", edtLoginName.getText().toString());
                                                 startActivity(intent);
                                             }
@@ -216,7 +219,11 @@ public class DangNhapActivity extends AppCompatActivity {
 //                                                intent.putExtra("UserName", edtLoginName.getText().toString());
 //                                                startActivity(intent);
 //                                            }
+                                        }else if(snapshot.getValue(UserData.class).getUserID().equals(firebaseUser.getUid()) && snapshot.getValue(UserData.class).getPassword().equals(password) && snapshot.getValue(UserData.class).getTinhTrang() == -1){
+                                            iCount++;
+                                            Toast.makeText(v.getContext(), "Tài khoản của bạn đã bị khóa, hãy liên hệ admin!",Toast.LENGTH_SHORT).show();
                                         }
+
                                     }
 
                                     @Override
@@ -240,9 +247,17 @@ public class DangNhapActivity extends AppCompatActivity {
                                     }
                                 });
 
-                            } else {
-                                Toast.makeText(DangNhapActivity.this, "Dang nhap that bai", Toast.LENGTH_LONG).show();
                             }
+                            Handler handler = new Handler();
+                            int delay = 1500;
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    if(iCount == 0){
+                                        Toast.makeText(v.getContext(), "Đăng nhập thất bại!",Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }, delay);
                         }
                     }
                 });

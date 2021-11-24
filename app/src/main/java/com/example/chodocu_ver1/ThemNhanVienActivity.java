@@ -16,6 +16,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.chodocu_ver1.data_models.UserData;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,14 +36,15 @@ import java.util.regex.Pattern;
 public class ThemNhanVienActivity extends AppCompatActivity {
 
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();//tạo liên kết firebase
-    private EditText edtUserName, edtFullName, edtSDT, edtDiaChi;// các trường nhập thông tin tài khoản
+    private EditText edtEmail, edtPassword, edtUserName, edtFullName, edtSDT, edtDiaChi;// các trường nhập thông tin tài khoản
     private Spinner spnGender;//Spinner giới tính user
     private Button btnRegistry, btnBack;//nút đăng ký
     private Spinner spnLoaiNhanVien;
-    private String UserName = "", FullName = "", SDT = "", DiaChi = "", Gender = "";//các biến lưu thông tin như user name, full name,...
+    private String UserName = "", FullName = "", SDT = "", DiaChi = "", Gender = "", Email = "", Password = "";//các biến lưu thông tin như user name, full name,...
     private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
     private ArrayList<UserData> userList;//khai báo danh sách user
     private ArrayList<UserData> blackList;
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private static final String USERNAME_PATTERN = "^[a-z0-9]{3,8}$";//kiểm tra user name nhập vào
     private Pattern pattern;
     private String admin = "";
@@ -55,6 +61,8 @@ public class ThemNhanVienActivity extends AppCompatActivity {
         edtUserName = findViewById(R.id.edtUserName);
         edtFullName = findViewById(R.id.edtFullName);
         edtSDT = findViewById(R.id.edtSDT);
+        edtEmail = findViewById(R.id.edtEmail);
+        edtPassword = findViewById(R.id.edtPassword);
         edtDiaChi = findViewById(R.id.edtDiaChi);
         spnLoaiNhanVien = findViewById(R.id.spnLoaiNhanVien);
         btnRegistry = findViewById(R.id.btnRegistry);
@@ -147,6 +155,14 @@ public class ThemNhanVienActivity extends AppCompatActivity {
         }
         return true;
     }
+    public boolean blackListEmailChecl(ArrayList<UserData> blackList, String sEmail){// kiểm tra sdt có tồn tại trên csdl hay chưa
+        for(UserData user : blackList){
+            if(user.getEmail().equals(sEmail)){
+                return false;
+            }
+        }
+        return true;
+    }
 
     public boolean blackListNameCheck(ArrayList<UserData> blackList, String sUserName){// kiểm tra user name có tồn tại trên csdl hay chưa
         for(UserData user : blackList){
@@ -163,10 +179,27 @@ public class ThemNhanVienActivity extends AppCompatActivity {
             UserName = edtUserName.getText().toString();
             FullName = edtFullName.getText().toString();
             SDT = edtSDT.getText().toString();
+            Email = edtEmail.getText().toString();
+            Password = edtPassword.getText().toString();
             DiaChi = edtDiaChi.getText().toString();
             Gender = spnGender.getSelectedItem().toString();
             if(UserName.isEmpty()){//kiểm tra user có nhập hay chưa
                 edtUserName.setError("Bạn chưa nhập user name!");
+            }
+            else if(Email.isEmpty()){
+                edtEmail.setError("Bạn chưa nhập Email!");
+            }
+            else if(Password.isEmpty()){
+                edtPassword.setError("Bạn chưa nhập Password!");
+            }
+            else if(blackListEmailChecl(userList,Email) == false){//kiểm tra Email có tồn tại hay không
+                AlertDialog.Builder alert = new AlertDialog.Builder(v.getContext());
+                alert.setMessage("Email đã tồn tại trong hệ thống!").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                }).show();
             }
             else if(UserNameCheck(userList,UserName) == false){//kiểm tra user có tồn tại hay không
                 AlertDialog.Builder alert = new AlertDialog.Builder(v.getContext());
@@ -233,7 +266,7 @@ public class ThemNhanVienActivity extends AppCompatActivity {
                             switch (which){
                                 case DialogInterface.BUTTON_POSITIVE:
                                     UserData user = new UserData();
-                                    CreateUser(UserName, FullName, SDT, Gender, DiaChi, UserName, 2);//chạy hàm tạo mới user và đưa user vào firebase
+                                    CreateUser(UserName,Email, FullName, SDT, Gender, DiaChi, Password, 2);//chạy hàm tạo mới user và đưa user vào firebase
                                     Toast.makeText(ThemNhanVienActivity.this, "Thêm nhân viên thành công!", Toast.LENGTH_SHORT).show();// thông báo tạo tài khoản thành công
                                     edtDiaChi.setText("");
                                     edtSDT.setText("");
@@ -256,7 +289,7 @@ public class ThemNhanVienActivity extends AppCompatActivity {
                             switch (which){
                                 case DialogInterface.BUTTON_POSITIVE:
                                     UserData user = new UserData();
-                                    CreateUser(UserName, FullName, SDT, Gender, DiaChi, UserName, 3);//chạy hàm tạo mới user và đưa user vào firebase
+                                    CreateUser(UserName,Email, FullName, SDT, Gender, DiaChi, Password, 3);//chạy hàm tạo mới user và đưa user vào firebase
                                     Toast.makeText(ThemNhanVienActivity.this, "Thêm nhân viên thành công!", Toast.LENGTH_SHORT).show();// thông báo tạo tài khoản thành công
                                     edtDiaChi.setText("");
                                     edtSDT.setText("");
@@ -275,16 +308,46 @@ public class ThemNhanVienActivity extends AppCompatActivity {
             }
         }
     };
-    private void CreateUser(String sUserName, String sFullName, String sSdt, String sGioiTinh, String sDiaChi, String sPassword, int iPermission){// hàm tạo mới user và đưa vào firebase
+    private void CreateUser(String sUserName, String email,String sFullName, String sSdt, String sGioiTinh, String sDiaChi, String sPassword, int iPermission){// hàm tạo mới user và đưa vào firebase
 
-        String sKey = mDatabase.push().getKey();
+//        String sKey = mDatabase.push().getKey();
+//
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");// định dạng ngày
+//        Date date = new Date();// lấy ngày hiện tại trong hệ thống
+//
+//        //UserData user = new UserData(sUserName,"", sFullName, sSdt, sGioiTinh, sDiaChi, sPassword, "",sKey, dateFormat.format(date),"", iPermission, 0, 0, 0, 0, 0, 0,0);// tạo mới user
+//        UserData user = new UserData(sUserName,"", sFullName, sSdt, sGioiTinh, sDiaChi, sPassword, "","",sKey, dateFormat.format(date),"", iPermission, 0, 0, 0, 0, 0, 0);
+//        //UserData user = new UserData(sUserName,"",sFullName,sSdt,sGioiTinh,sDiaChi,sPassword, "",sKey,dateFormat.format(date),"",iPermission,0,0,0,0,0);
+//        mDatabase.child("User").child(sKey).setValue(user);//đưa user mới vào firebase
 
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");// định dạng ngày
-        Date date = new Date();// lấy ngày hiện tại trong hệ thống
 
-        //UserData user = new UserData(sUserName,"", sFullName, sSdt, sGioiTinh, sDiaChi, sPassword, "",sKey, dateFormat.format(date),"", iPermission, 0, 0, 0, 0, 0, 0,0);// tạo mới user
-        UserData user = new UserData(sUserName,"", sFullName, sSdt, sGioiTinh, sDiaChi, sPassword, "","",sKey, dateFormat.format(date),"", iPermission, 0, 0, 0, 0, 0, 0);
-        //UserData user = new UserData(sUserName,"",sFullName,sSdt,sGioiTinh,sDiaChi,sPassword, "",sKey,dateFormat.format(date),"",iPermission,0,0,0,0,0);
-        mDatabase.child("User").child(sKey).setValue(user);//đưa user mới vào firebase
+
+        mAuth.createUserWithEmailAndPassword(email,sPassword).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                if (task.isSuccessful()) {
+                    // Sign in success, update UI with the signed-in user's information
+
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    Toast.makeText(ThemNhanVienActivity.this, "Đăng ký nhân viên thành công",
+                            Toast.LENGTH_SHORT).show();
+                    String userID = user.getUid();
+
+                    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");// định dạng ngày
+                    Date date = new Date();// lấy ngày hiện tại trong hệ thống
+
+                    UserData userData = new UserData(sUserName,"", sFullName, sSdt, sGioiTinh, sDiaChi, sPassword, "", userID, dateFormat.format(date),"",email, iPermission, 0, 0, 0, 0, 0, 0);
+                    //UserData userData = new UserData(sUserName,"", sFullName, sSdt, sGioiTinh, sDiaChi, sPassword, "",userID, dateFormat.format(date),soCMND, email, iPermission, userCommission, 0, 0, 0, 0, 0);// tạo mới user
+                    mDatabase = FirebaseDatabase.getInstance().getReference();
+                    mDatabase.child("User").child(userID).setValue(userData);
+                    finish();
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Toast.makeText(ThemNhanVienActivity.this, "Lỗi email chưa chính xác",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }

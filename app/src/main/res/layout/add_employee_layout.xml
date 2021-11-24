@@ -44,6 +44,33 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/email_dangky"
+                android:textSize="20dp"></TextView>
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email_dangky"
+                android:singleLine="true"
+                android:layout_marginBottom="20dp"></EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/matkhau_dangky"
+                android:textSize="20dp"></TextView>
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/matkhau_dangky"
+                android:singleLine="true"
+                android:layout_marginBottom="20dp"
+                android:password="true"></EditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/hoten_dangky"
                 android:textSize="20dp"></TextView>
             <EditText

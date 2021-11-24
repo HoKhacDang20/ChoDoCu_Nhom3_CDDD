@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.chodocu_ver1.data_models.CuaHang;
+import com.example.chodocu_ver1.data_models.Permission;
 import com.example.chodocu_ver1.data_models.SanPhamReport;
 import com.example.chodocu_ver1.data_models.UserData;
 import com.example.chodocu_ver1.data_models.UserDepositData;
@@ -26,6 +27,7 @@ import com.example.chodocu_ver1.data_models.UserReport;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,6 +39,8 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 
 public class AdminMainActivity extends AppCompatActivity {
+    public static FirebaseUser user;
+
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
     private StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     private Button btnLogout, btnQuanLyDanhMuc, btnLichSuDonHangShipper, btnAccountInfo, btnWallet, btnProductReport, btnUserReport, btnUserReported, btnUserDepositMoney, btnEmployeeManagement, btnPassWordChange, btnShopRegistration, btnCommission, btnAddEmployee, btnThongKe;
@@ -224,12 +228,12 @@ public class AdminMainActivity extends AppCompatActivity {
 
             sUserName = getIntent().getExtras().getString("UserName");
 
-//            txtAdminAccountName.setText(String.valueOf(userDataArrayList.size()));
+           txtAdminAccountName.setText(String.valueOf(userDataArrayList.size()));
 
             databaseReference.child("User").addChildEventListener(new ChildEventListener() {
                 @Override
                 public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                    if(snapshot.getValue(UserData.class).getUserID().equals(UserMainActivity.sUserID)){
+                    if(snapshot.getValue(UserData.class).getUserID().equals(user.getUid())){
                         per = snapshot.getValue(UserData.class).getPermission();
                         if(snapshot.getValue(UserData.class).getPermission() == 2){
                             btnAddEmployee.setVisibility(View.GONE);
@@ -242,7 +246,7 @@ public class AdminMainActivity extends AppCompatActivity {
                             txtAdminAccountName.setText("Employee - " + snapshot.getValue(UserData.class).getHoTen());
                             imageLoad(snapshot.getValue(UserData.class).getImage());
                         }
-                        else if(snapshot.getValue(UserData.class).getPermission() == 0){
+                        else{
                             txtAdminAccountName.setText("Admin - " + snapshot.getValue(UserData.class).getHoTen());
                             imageLoad(snapshot.getValue(UserData.class).getImage());
                         }
@@ -250,7 +254,6 @@ public class AdminMainActivity extends AppCompatActivity {
                         if(!snapshot.getValue(UserData.class).getImage().isEmpty()){
                             imageLoad(snapshot.getValue(UserData.class).getImage());
                         }
-
                     }
                 }
 
@@ -462,6 +465,12 @@ public class AdminMainActivity extends AppCompatActivity {
                 public void onClick(DialogInterface dialog, int which) {
                     switch (which){
                         case DialogInterface.BUTTON_POSITIVE:
+                            //finish();
+                            //intent = new Intent(v.getContext(), DangNhapActivity.class);
+//                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                            startActivity(intent);
+//                            FirebaseAuth.getInstance().signOut();
+//                            finish();
                             FirebaseAuth.getInstance().signOut();
                             intent = new Intent(v.getContext(), DangNhapActivity.class);
                             startActivity(intent);

@@ -98,7 +98,9 @@ public class KhoaUserAdapter extends BaseAdapter {
                 storageReference.child(snapshot.getValue(UserData.class).getImage() + ".png").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
-                        Glide.with(context).load(uri).into(viewHolder.imgUser);
+                        if(context!=null){
+                            Glide.with(context).load(uri).into(viewHolder.imgUser);
+                        }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -117,6 +119,7 @@ public class KhoaUserAdapter extends BaseAdapter {
                                     public void onClick(DialogInterface dialog, int which) {
                                         switch (which){
                                             case DialogInterface.BUTTON_POSITIVE:
+
                                                 databaseReference.child("KhoaUser").addChildEventListener(new ChildEventListener() {
                                                     @Override
                                                     public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {

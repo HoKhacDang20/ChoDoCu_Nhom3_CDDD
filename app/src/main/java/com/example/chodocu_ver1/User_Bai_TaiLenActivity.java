@@ -12,7 +12,6 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import com.example.chodocu_ver1.adapter.SanPhamAdapter;
 import com.example.chodocu_ver1.data_models.SanPham;
@@ -73,17 +72,9 @@ public class User_Bai_TaiLenActivity extends AppCompatActivity {
             databaseReference.child("SanPham").addChildEventListener(new ChildEventListener() {
                 @Override
                 public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                    if(snapshot.getValue(SanPham.class).getUserID() != null){
-                        if(snapshot.getValue(SanPham.class).getUserID().equals(userID)){
-                            sanPhamArrayList.add(snapshot.getValue(SanPham.class));
-                        }
+                    if(snapshot.getValue(SanPham.class).getUserID().equals(userID)){
+                        sanPhamArrayList.add(snapshot.getValue(SanPham.class));
                     }
-                    else {
-                        Toast.makeText(User_Bai_TaiLenActivity.this, "Null", Toast.LENGTH_SHORT).show();
-                    }
-//                    if(snapshot.getValue(SanPham.class).getUserID().equals(userID)){
-//                        sanPhamArrayList.add(snapshot.getValue(SanPham.class));
-//                    }
                 }
 
                 @Override

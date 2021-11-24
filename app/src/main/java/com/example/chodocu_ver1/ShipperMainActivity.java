@@ -19,9 +19,11 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.chodocu_ver1.data_models.DatHang;
 import com.example.chodocu_ver1.data_models.UserData;
+import com.example.chodocu_ver1.data_models.UserReport;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,6 +35,9 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 
 public class ShipperMainActivity extends AppCompatActivity {
+
+    public static FirebaseUser user;
+
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
     private StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     private Button btnLogout, btnAccountInfo, btnPassWordChange, btnDanhSachDonHang, btnCacDonDangGiao, btnDanhSachShipper, btnLichSuDonHangShipper, btnCacDonHoanTat;
@@ -41,11 +46,11 @@ public class ShipperMainActivity extends AppCompatActivity {
     private ArrayList<DatHang> donDaDongGoi;
     private ArrayList<DatHang> donHoanTat;
     private ImageView imgAccount;
-    private String sUserName, userID;
+    private String sUserName, userID = user.getUid();
     private Intent intent;
     private int permission = 0;
     public static ArrayList<String> shipperList;
-
+    private ArrayList<UserData> userDataArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +75,7 @@ public class ShipperMainActivity extends AppCompatActivity {
         donDangGiao = new ArrayList<>();
         shipperList = new ArrayList<>();
         donHoanTat = new ArrayList<>();
+        userDataArrayList = new ArrayList<>();
 
         btnLogout.setOnClickListener(logoutClick);
         btnAccountInfo.setOnClickListener(accountInfoClick);
@@ -151,10 +157,12 @@ public class ShipperMainActivity extends AppCompatActivity {
 
             sUserName = getIntent().getExtras().getString("UserName");
 
+            txtShipperAccountName.setText(String.valueOf(userDataArrayList.size()));
+
             databaseReference.child("User").addChildEventListener(new ChildEventListener() {
                 @Override
                 public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                    if(snapshot.getValue(UserData.class).getUserName().equals(sUserName) && snapshot.getValue(UserData.class).getPermission() == 3){
+                    if(snapshot.getValue(UserData.class).getUserID().equals(userID) && snapshot.getValue(UserData.class).getPermission() == 3){
                         permission = 3;
                         txtShipperAccountName.setText("Shipper - " + snapshot.getValue(UserData.class).getHoTen());
                         userID = snapshot.getValue(UserData.class).getUserID();
@@ -351,12 +359,12 @@ public class ShipperMainActivity extends AppCompatActivity {
                 public void onClick(DialogInterface dialog, int which) {
                     switch (which){
                         case DialogInterface.BUTTON_POSITIVE:
-//                            FirebaseAuth.getInstance().signOut();
-//                            ShipperMainActivity.this.finish();
-//                            break;
+                            //finish();
+//                            intent = new Intent(v.getContext(), DangNhapActivity.class);
+//                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                            startActivity(intent);
                             FirebaseAuth.getInstance().signOut();
-                            intent = new Intent(v.getContext(), DangNhapActivity.class);
-                            startActivity(intent);
+                            finish();
                             break;
                         case DialogInterface.BUTTON_NEGATIVE:
                             return;

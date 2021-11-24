@@ -51,7 +51,7 @@ public class DanhSachUserActivity extends AppCompatActivity {
         super.onResume();
 
         if (getIntent().getExtras() != null) {
-            userName = getIntent().getExtras().getString("UserName");
+            //userName = getIntent().getExtras().getString("UserName");
             lockUserArrayList.clear();
             databaseReference.child("LockUser").addChildEventListener(new ChildEventListener() {
                 @Override

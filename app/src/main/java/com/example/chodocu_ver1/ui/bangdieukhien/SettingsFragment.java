@@ -768,8 +768,8 @@ public class SettingsFragment extends Fragment {
                             FirebaseAuth.getInstance().signOut();
                             intent = new Intent(v.getContext(), DangNhapActivity.class);
                             startActivity(intent);
-                            break;
 
+                            break;
                         case DialogInterface.BUTTON_NEGATIVE:
                             return;
 

@@ -104,7 +104,6 @@
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:text="1"
-                        android:gravity="center"
                         android:layout_marginRight="5dp"
                         android:layout_marginLeft="5dp"
                         android:inputType="number"/>

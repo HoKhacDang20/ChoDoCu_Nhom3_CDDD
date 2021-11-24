@@ -74,6 +74,8 @@ public class DoiMatKhauActivity extends AppCompatActivity {
 
         btnBack.setOnClickListener(backClick);
         btnPasswordSave.setOnClickListener(saveClick);
+
+
     }
 
     @Override
@@ -203,6 +205,7 @@ public class DoiMatKhauActivity extends AppCompatActivity {
                         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                         finish();
                         startActivity(intent);
+
                     }
                     else if(snapshot.getValue(UserData.class).getUserName().equals(sUserName) && snapshot.getValue(UserData.class).getPermission() == 0 || snapshot.getValue(UserData.class).getUserName().equals(sUserName) && snapshot.getValue(UserData.class).getPermission() == 2){
                         Intent intent = new Intent(v.getContext(), AdminMainActivity.class);
@@ -210,6 +213,7 @@ public class DoiMatKhauActivity extends AppCompatActivity {
                         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                         finish();
                         startActivity(intent);
+
                     }
                     else if(snapshot.getValue(UserData.class).getUserName().equals(sUserName) && snapshot.getValue(UserData.class).getPermission() == 3 || snapshot.getValue(UserData.class).getUserName().equals(sUserName) && snapshot.getValue(UserData.class).getPermission() == 4){
                         //Intent intent = new Intent(v.getContext(), ShipperMainActivity.class);

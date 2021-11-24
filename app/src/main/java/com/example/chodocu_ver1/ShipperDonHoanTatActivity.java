@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.example.chodocu_ver1.adapter.DonMuaAdapter;
 import com.example.chodocu_ver1.data_models.DatHang;
@@ -29,7 +30,8 @@ public class ShipperDonHoanTatActivity extends AppCompatActivity {
     private Button btnBack;
     private GridView gridDonHoanThanh;
     private Intent intent;
-    private String userName, userID;
+    private String userName;
+    private String userID = UserMainActivity.sUserID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +69,8 @@ public class ShipperDonHoanTatActivity extends AppCompatActivity {
 
         if(getIntent().getExtras() != null){
             userName = getIntent().getExtras().getString("UserName");
-            userID = getIntent().getExtras().getString("UserID");
+
+            Toast.makeText(ShipperDonHoanTatActivity.this, userID, Toast.LENGTH_SHORT).show();
 
             databaseReference.child("Shipper").child(userID).addChildEventListener(new ChildEventListener() {
                 @Override

@@ -218,7 +218,7 @@ public class UserChiTietReportActivity extends AppCompatActivity {
                                                     String lockID = databaseReference.push().getKey();
                                                     KhoaUser lockUser = new KhoaUser(lockID, sUserID);
                                                     databaseReference.child("LockUser").child(lockID).setValue(lockUser);
-                                                    databaseReference.child("User").child(snapshot.getKey()).child("iTinhTrang").setValue(-1);
+                                                    databaseReference.child("User").child(snapshot.getKey()).child("tinhTrang").setValue(-1);
                                                 }
                                             }
 
@@ -301,7 +301,7 @@ public class UserChiTietReportActivity extends AppCompatActivity {
                                                     String lockID = databaseReference.push().getKey();
                                                     KhoaUser lockUser = new KhoaUser(lockID, userID);
                                                     databaseReference.child("LockUser").child(lockID).setValue(lockUser);
-                                                    databaseReference.child("User").child(snapshot.getKey()).child("iTinhTrang").setValue(-1);
+                                                    databaseReference.child("User").child(snapshot.getKey()).child("tinhTrang").setValue(-1);
                                                 }
                                             }
 
