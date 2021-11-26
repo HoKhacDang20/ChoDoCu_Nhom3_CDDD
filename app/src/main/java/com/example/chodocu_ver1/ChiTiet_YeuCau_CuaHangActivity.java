@@ -35,7 +35,7 @@ public class ChiTiet_YeuCau_CuaHangActivity extends AppCompatActivity {
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
     private StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     private ImageView imgShop;
-    private TextView txtTenShop, txtMoTaShop;
+    private TextView txtTenShop, txtMoTaShop,txtDiemThanhVienCH;
     private Button btnAccept, btnDeny, btnBack;
     private Intent intent;
     private int commission;
@@ -54,7 +54,7 @@ public class ChiTiet_YeuCau_CuaHangActivity extends AppCompatActivity {
         btnAccept = (Button) findViewById(R.id.btnAccept);
         btnBack = (Button) findViewById(R.id.btnBack);
         btnDeny = (Button) findViewById(R.id.btnDeny);
-
+        txtDiemThanhVienCH = (TextView) findViewById(R.id.txtDiemThanhVienCH);
         btnBack.setOnClickListener(backClick);
         btnDeny.setOnClickListener(denyClick);
         btnAccept.setOnClickListener(acceptClick);
@@ -116,6 +116,36 @@ public class ChiTiet_YeuCau_CuaHangActivity extends AppCompatActivity {
 
                         txtTenShop.setText(snapshot.getValue(CuaHang.class).getShopName());
                         txtMoTaShop.setText(snapshot.getValue(CuaHang.class).getMoTaShop());
+                    }
+                }
+
+                @Override
+                public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                }
+
+                @Override
+                public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+            //
+            databaseReference.child("User").addChildEventListener(new ChildEventListener() {
+                @Override
+                public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                    if (snapshot.getValue(UserData.class).getUserID().equals(userID)){
+                        txtDiemThanhVienCH.setText("Điểm thành viên "+snapshot.getValue(UserData.class).getDiemThanhVien());
                     }
                 }
 

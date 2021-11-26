@@ -51,7 +51,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="7"
+                android:layout_weight="12"
                 android:layout_marginBottom="10dp"
                 android:orientation="vertical">
                 <TextView
@@ -68,6 +68,13 @@
                     android:layout_height="wrap_content"
                     android:text="@string/ten_shop"
                     android:textSize="25sp"/>
+                <TextView
+                    android:id="@+id/txtDiemThanhVienCH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="10dp"
+                    android:text=""
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
