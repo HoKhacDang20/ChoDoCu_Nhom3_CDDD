@@ -96,7 +96,7 @@ public class WalletUserFragment extends Fragment {
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(v.getContext());
                     builder1.setMessage("vui lòng chuyển khoản theo cú pháp:\n" +
                     "TenUser_NapTien_SoTien gửi đến stk 63001312349581\n"+
-                            "Tên chủ thẻ: Nguyễn văn A\n"+
+                            "Tên chủ thẻ: Nguyễn văn Anh\n"+
                             "Chi nhánh: Q9").setNegativeButton("NO",dialog)
                             .setPositiveButton("YES",dialog).show();
                 }
