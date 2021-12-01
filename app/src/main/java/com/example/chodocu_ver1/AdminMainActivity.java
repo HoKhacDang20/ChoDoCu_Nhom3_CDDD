@@ -453,6 +453,7 @@ public class AdminMainActivity extends AppCompatActivity {
         public void onClick(View v) {
             intent = new Intent(v.getContext(), ThongTinTaiKhoanActivity.class);
             intent.putExtra("UserName", sUserName);
+            intent.putExtra("UserID", user.getUid());
             startActivity(intent);
         }
     };
@@ -469,11 +470,8 @@ public class AdminMainActivity extends AppCompatActivity {
                             //intent = new Intent(v.getContext(), DangNhapActivity.class);
 //                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //                            startActivity(intent);
-//                            FirebaseAuth.getInstance().signOut();
-//                            finish();
                             FirebaseAuth.getInstance().signOut();
-                            intent = new Intent(v.getContext(), DangNhapActivity.class);
-                            startActivity(intent);
+                            finish();
                             break;
                         case DialogInterface.BUTTON_NEGATIVE:
                             return;

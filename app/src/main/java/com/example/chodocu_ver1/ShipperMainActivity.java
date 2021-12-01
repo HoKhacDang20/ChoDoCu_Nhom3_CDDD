@@ -346,6 +346,7 @@ public class ShipperMainActivity extends AppCompatActivity {
         public void onClick(View v) {
             intent = new Intent(v.getContext(), ThongTinTaiKhoanActivity.class);
             intent.putExtra("UserName", sUserName);
+            intent.putExtra("UserID", userID);
             intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
         }

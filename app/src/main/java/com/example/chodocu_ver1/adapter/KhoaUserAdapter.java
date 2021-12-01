@@ -95,20 +95,22 @@ public class KhoaUserAdapter extends BaseAdapter {
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 String sID = snapshot.getKey();
                 String userID = snapshot.getValue(UserData.class).getUserID();
-                storageReference.child(snapshot.getValue(UserData.class).getImage() + ".png").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        if(context!=null){
-                            Glide.with(context).load(uri).into(viewHolder.imgUser);
+                if (snapshot.getValue(UserData.class).getUserID().equals(khoaUser.getUserID())) {
+                    storageReference.child(snapshot.getValue(UserData.class).getImage() + ".png").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            if (context.getApplicationContext() != null) {
+                                Glide.with(context.getApplicationContext()).load(uri).into(viewHolder.imgUser);
+                            }
                         }
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
 
-                    }
-                });
-                viewHolder.txtUserName.setText(snapshot.getValue(UserData.class).getUserName());
+                        }
+                    });
+                    viewHolder.txtUserName.setText(snapshot.getValue(UserData.class).getUserName());
+                }
                 viewHolder.radGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -119,34 +121,8 @@ public class KhoaUserAdapter extends BaseAdapter {
                                     public void onClick(DialogInterface dialog, int which) {
                                         switch (which){
                                             case DialogInterface.BUTTON_POSITIVE:
-
-                                                databaseReference.child("KhoaUser").addChildEventListener(new ChildEventListener() {
-                                                    @Override
-                                                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                                                        databaseReference.child("KhoaUser").child(snapshot.getKey()).removeValue();
-                                                        databaseReference.child("User").child(sID).child("tinhTrang").setValue(0);
-                                                    }
-
-                                                    @Override
-                                                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                                                    }
-
-                                                    @Override
-                                                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-                                                    }
-
-                                                    @Override
-                                                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                                                    }
-
-                                                    @Override
-                                                    public void onCancelled(@NonNull DatabaseError error) {
-
-                                                    }
-                                                });
+                                                databaseReference.child("KhoaUser").child(snapshot.getKey()).removeValue();
+                                                databaseReference.child("User").child(sID).child("tinhTrang").setValue(0);
                                                 break;
                                             case DialogInterface.BUTTON_NEGATIVE:
                                                 viewHolder.radDisable.setChecked(true);

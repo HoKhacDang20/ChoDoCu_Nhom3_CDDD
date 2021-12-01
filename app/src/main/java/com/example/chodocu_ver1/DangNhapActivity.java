@@ -82,6 +82,7 @@ public class DangNhapActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user != null)
         {
+
             Intent intent = new Intent(DangNhapActivity.this,UserMainActivity.class);
             UserMainActivity.user = user;
             startActivity(intent);

@@ -66,7 +66,7 @@ public class ShipperDonDangGiaoActivity extends AppCompatActivity {
 
         if(getIntent().getExtras() != null){
             userName = getIntent().getExtras().getString("UserName");
-            userID = UserMainActivity.sUserID;
+            userID = getIntent().getExtras().getString("UserID");
 
             databaseReference.child("Shipper").child(userID).addChildEventListener(new ChildEventListener() {
                 @Override

@@ -218,13 +218,13 @@ public class ChiTiet_SanPhamActivity extends AppCompatActivity {
                         }
 
                         if(userID != null){
-//                            Toast.makeText(ChiTiet_SanPhamActivity.this, userID, Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(ChiTiet_SanPhamActivity.this, userID, Toast.LENGTH_SHORT).show();
                         }
                         if(sanPham != null) {
-//                            Toast.makeText(ChiTiet_SanPhamActivity.this, sanPham.getShopID(), Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(ChiTiet_SanPhamActivity.this, sanPham.getShopID(), Toast.LENGTH_SHORT).show();
                         }
                         else {
-//                            Toast.makeText(ChiTiet_SanPhamActivity.this, ":v", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(ChiTiet_SanPhamActivity.this, ":v", Toast.LENGTH_SHORT).show();
                         }
 
                         txtMoTaSP.setText(snapshot.getValue(SanPham.class).getMoTa());
@@ -303,7 +303,7 @@ public class ChiTiet_SanPhamActivity extends AppCompatActivity {
                                         }).addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
-                                                Toast.makeText(ChiTiet_SanPhamActivity.this, "Hinh anh khong ton tai!", Toast.LENGTH_SHORT).show();
+                                                //Toast.makeText(ChiTiet_SanPhamActivity.this, "Hinh anh khong ton tai!", Toast.LENGTH_SHORT).show();
                                             }
                                         });
                                         String shopName = snapshot.getValue(CuaHang.class).getShopName();

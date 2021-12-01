@@ -366,11 +366,11 @@ public class UserChiTietReportActivity extends AppCompatActivity {
     View.OnClickListener backClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(v.getContext(), Report_User_Admin_Activity.class);
-            intent.putExtra("UserName", userName);
-            intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+//            Intent intent = new Intent(v.getContext(), Report_User_Admin_Activity.class);
+//            intent.putExtra("UserName", userName);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             finish();
-            startActivity(intent);
+//            startActivity(intent);
         }
     };
 }

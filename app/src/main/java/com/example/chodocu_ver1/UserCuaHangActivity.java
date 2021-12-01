@@ -101,7 +101,7 @@ public class UserCuaHangActivity extends AppCompatActivity {
             databaseReference.child("SanPham").addChildEventListener(new ChildEventListener() {
                 @Override
                 public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//                    Toast.makeText(UserCuaHangActivity.this, userID, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UserCuaHangActivity.this, userID, Toast.LENGTH_SHORT).show();
 
                     //sanPhamArrayList.add(snapshot.getValue(SanPham.class));
                     if(snapshot.getValue(SanPham.class).getUserID().equals(userID)){

@@ -37,7 +37,7 @@ import java.util.ArrayList;
 
 public class ThongTinTaiKhoanActivity extends AppCompatActivity {
 
-    private String sUserName, sFullname, sGenDer, sDiaChi, sSDT, sCMND;
+    private String sUserName, sFullname, sGenDer, sDiaChi, sSDT, sCMND, userID;
     private ArrayList<UserData> userDataArrayList;
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
     private StorageReference storageReference = FirebaseStorage.getInstance().getReference();
@@ -99,12 +99,13 @@ public class ThongTinTaiKhoanActivity extends AppCompatActivity {
         });
         if(getIntent().getExtras() != null){
             sUserName = getIntent().getExtras().getString("UserName");
+            userID = getIntent().getExtras().getString("UserID");
             edtUserName.setText(sUserName);
 
             databaseReference.child("User").addChildEventListener(new ChildEventListener() {
                 @Override
                 public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                    if(snapshot.getValue(UserData.class).getUserID().equals(UserMainActivity.user.getUid())){
+                    if(snapshot.getValue(UserData.class).getUserID().equals(userID)){
                         edtFullName.setText(snapshot.getValue(UserData.class).getHoTen());
                         edtSDT.setText(snapshot.getValue(UserData.class).getSoDienThoai());
                         edtUserName.setText(snapshot.getValue(UserData.class).getUserName());

@@ -18,7 +18,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
-import com.example.chodocu_ver1.DangNhapActivity;
 import com.example.chodocu_ver1.DoiMatKhauActivity;
 import com.example.chodocu_ver1.DonBanActivity;
 import com.example.chodocu_ver1.DonMuaActivity;
@@ -752,6 +751,7 @@ public class SettingsFragment extends Fragment {
         public void onClick(View v) {
             intent = new Intent(v.getContext(), ThongTinTaiKhoanActivity.class);
             intent.putExtra("UserName", sUserName);
+            intent.putExtra("UserID", userID);
             startActivity(intent);
         }
     };
@@ -766,8 +766,7 @@ public class SettingsFragment extends Fragment {
                         case DialogInterface.BUTTON_POSITIVE:
 
                             FirebaseAuth.getInstance().signOut();
-                            intent = new Intent(v.getContext(), DangNhapActivity.class);
-                            startActivity(intent);
+                            getActivity().finish();
 
                             break;
                         case DialogInterface.BUTTON_NEGATIVE:

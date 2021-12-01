@@ -254,10 +254,10 @@ public class ThanhToanActivity extends AppCompatActivity {
                                                     Date date = new Date();
                                                     DatHang orderData = new DatHang(donHangID, UserMainActivity.user.getUid(), nguoiBanID, dateFormat.format(date), edtLienHe.getText().toString(), edtDiaChi.getText().toString(), sanPhamOrder, 2, 0, 0, tongGiaTriDonHang, "");
                                                     databaseReference.child("DonHang").child(donHangID).setValue(orderData);
-                                                    finish();
+
                                                     intent = new Intent(v.getContext(), UserMainActivity.class);
                                                     intent.putExtra("UserName", userName);
-                                                    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                                     startActivity(intent);
 
                                                 }
@@ -326,10 +326,10 @@ public class ThanhToanActivity extends AppCompatActivity {
                                                         Date date = new Date();
                                                         DatHang orderData = new DatHang(donHangID, userID, nguoiBanID, dateFormat.format(date), edtLienHe.getText().toString(), edtDiaChi.getText().toString(), sanPhamOrder, 3, 0, 0, tongGiaTriDonHang, "");
                                                         databaseReference.child("DonHang").child(donHangID).setValue(orderData);
-                                                        finish();
+
                                                         intent = new Intent(v.getContext(), UserMainActivity.class);
                                                         intent.putExtra("UserName", userName);
-                                                        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                                         startActivity(intent);
 
                                                     }

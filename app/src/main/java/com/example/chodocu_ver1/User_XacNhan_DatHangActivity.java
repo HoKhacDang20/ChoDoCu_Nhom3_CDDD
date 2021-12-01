@@ -295,11 +295,11 @@ public class User_XacNhan_DatHangActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             finish();
-            intent = new Intent(v.getContext(), DonMuaActivity.class);
-            intent.putExtra("UserName", userName);
-            intent.putExtra("UserID", userID);
-            intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            startActivity(intent);
+//            intent = new Intent(v.getContext(), DonMuaActivity.class);
+//            intent.putExtra("UserName", userName);
+//            intent.putExtra("UserID", userID);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+//            startActivity(intent);
         }
     };
 }

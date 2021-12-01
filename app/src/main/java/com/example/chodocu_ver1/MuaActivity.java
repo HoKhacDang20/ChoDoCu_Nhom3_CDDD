@@ -273,6 +273,7 @@ public class MuaActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which){
                             case DialogInterface.BUTTON_POSITIVE:
+                                finish();
                                 intent = new Intent(v.getContext(), ThanhToanActivity.class);
                                 intent.putExtra("KieuThanhToan", 2);
                                 intent.putExtra("UserName", userName);
@@ -300,6 +301,7 @@ public class MuaActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which){
                             case DialogInterface.BUTTON_POSITIVE:
+                                finish();
                                 intent = new Intent(v.getContext(), ThanhToanActivity.class);
                                 intent.putExtra("KieuThanhToan", 3);
                                 intent.putExtra("UserName", userName);

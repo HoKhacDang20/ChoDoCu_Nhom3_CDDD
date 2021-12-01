@@ -31,7 +31,7 @@ public class ShipperDonHoanTatActivity extends AppCompatActivity {
     private GridView gridDonHoanThanh;
     private Intent intent;
     private String userName;
-    private String userID = UserMainActivity.sUserID;
+    private String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,8 +69,9 @@ public class ShipperDonHoanTatActivity extends AppCompatActivity {
 
         if(getIntent().getExtras() != null){
             userName = getIntent().getExtras().getString("UserName");
+            userID = getIntent().getExtras().getString("UserID");
 
-            Toast.makeText(ShipperDonHoanTatActivity.this, userID, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(ShipperDonHoanTatActivity.this, userID, Toast.LENGTH_SHORT).show();
 
             databaseReference.child("Shipper").child(userID).addChildEventListener(new ChildEventListener() {
                 @Override
