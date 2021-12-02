@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChoDoCu_Nhom3_CDDD">
         <activity
+            android:name=".ShipperDetailDonDaDongGoiActivity"
+            android:exported="true" />
+        <activity
             android:name=".ShipperDanhSachActivity"
             android:exported="true" />
         <activity
