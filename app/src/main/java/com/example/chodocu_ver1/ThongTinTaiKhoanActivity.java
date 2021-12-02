@@ -41,7 +41,7 @@ public class ThongTinTaiKhoanActivity extends AppCompatActivity {
     private ArrayList<UserData> userDataArrayList;
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
     private StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-    private ImageView imgAccChange;
+    private ImageView imgAccChange, imgCMNDMatTruoc;
     private Button btnChooseFromGallery, btnOpenCamera, btnSave, btnBack;
     private Spinner spnGender;
     private EditText edtUserName, edtFullName, edtSDT, edtDiaChi, edtCommission, edtSCMND;
@@ -57,6 +57,7 @@ public class ThongTinTaiKhoanActivity extends AppCompatActivity {
         setContentView(R.layout.thongtin_taikhoan_layout);
 
         imgAccChange = (ImageView) findViewById(R.id.imgAccChange);
+        imgCMNDMatTruoc = (ImageView) findViewById(R.id.imgCMNDMatTruoc);
         btnBack = (Button) findViewById(R.id.btnBack);
         btnChooseFromGallery = (Button) findViewById(R.id.btnChooseFromGallery);
         btnOpenCamera = (Button) findViewById(R.id.btnOpenCamera);
@@ -123,6 +124,7 @@ public class ThongTinTaiKhoanActivity extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     Glide.with(ThongTinTaiKhoanActivity.this).load(uri).into(imgAccChange);
+
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
@@ -131,6 +133,32 @@ public class ThongTinTaiKhoanActivity extends AppCompatActivity {
                                 }
                             });
                         }
+                        if(!snapshot.getValue(UserData.class).getCmndMatTruoc().isEmpty()){
+                            storageReference.child(snapshot.getValue(UserData.class).getCmndMatTruoc() + ".png").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    Glide.with(ThongTinTaiKhoanActivity.this).load(uri).into(imgCMNDMatTruoc);
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+//                                    Toast.makeText(AccountInfoActivity.this, "Hinh anh khong ton tai!", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+//                        if(!snapshot.getValue(UserData.class).getCmndMatTruoc().isEmpty()){
+//                            storageReference.child(snapshot.getValue(UserData.class).getCmndMatTruoc() + ".png").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+//                                @Override
+//                                public void onSuccess(Uri uri) {
+//                                    Glide.with(ThongTinTaiKhoanActivity.this).load(uri).into(imgCMNDMatTruoc);
+//                                }
+//                            }).addOnFailureListener(new OnFailureListener() {
+//                                @Override
+//                                public void onFailure(@NonNull Exception e) {
+////                                    Toast.makeText(AccountInfoActivity.this, "Hinh anh khong ton tai!", Toast.LENGTH_SHORT).show();
+//                                }
+//                            });
+//                        }
                     }
                 }
 
@@ -160,6 +188,8 @@ public class ThongTinTaiKhoanActivity extends AppCompatActivity {
         btnSave.setOnClickListener(saveClick);
         btnOpenCamera.setOnClickListener(openCameraClick);
     }
+
+
     public boolean sdtCheck(ArrayList<UserData> userList, String sSDT, String sUserName){
         for(UserData user : userList){
             if(!user.getUserName().equals(sUserName) && user.getSoDienThoai().equals(sSDT)){
@@ -180,7 +210,9 @@ public class ThongTinTaiKhoanActivity extends AppCompatActivity {
 
     View.OnClickListener saveClick = new View.OnClickListener() {
         @Override
+
         public void onClick(View v) {
+
             sUserName = edtUserName.getText().toString();
             sFullname = edtFullName.getText().toString();
             sGenDer = spnGender.getSelectedItem().toString();
@@ -241,7 +273,6 @@ public class ThongTinTaiKhoanActivity extends AppCompatActivity {
                                             bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
                                             byte[] data = baos.toByteArray();
                                             final UploadTask uploadTask = mountainsRef.putBytes(data);
-
                                             uploadTask.addOnFailureListener(new OnFailureListener() {
                                                 @Override
                                                 public void onFailure(@NonNull Exception exception) {
@@ -254,7 +285,35 @@ public class ThongTinTaiKhoanActivity extends AppCompatActivity {
 
                                                 }
                                             });
-                                            UserData userUpdate = new UserData(sUserName,snapshot.getValue(UserData.class).getShopID(),sFullname,sSDT,sGenDer,sDiaChi, snapshot.getValue(UserData.class).getPassword(),sKey,snapshot.getValue(UserData.class).getUserID(), snapshot.getValue(UserData.class).getNgayThamGia(),snapshot.getValue(UserData.class).getSoCMND(),snapshot.getValue(UserData.class).getEmail(),snapshot.getValue(UserData.class).getPermission(), snapshot.getValue(UserData.class).getHoaHong(), snapshot.getValue(UserData.class).getTinhTrang(), snapshot.getValue(UserData.class).getSoSPDaBan(), snapshot.getValue(UserData.class).getDiemThanhVien(),snapshot.getValue(UserData.class).getReport(),snapshot.getValue(UserData.class).getMoney());
+
+
+                                            String sKey1 = databaseReference.push().getKey();
+
+                                            final StorageReference mountainsRef1 = storageReference.child(sKey1 + ".png");
+
+                                            imgCMNDMatTruoc.setDrawingCacheEnabled(true);
+                                            imgCMNDMatTruoc.buildDrawingCache();
+                                            Bitmap bitmap1 = ((BitmapDrawable) imgCMNDMatTruoc.getDrawable()).getBitmap();
+                                            ByteArrayOutputStream baos1 = new ByteArrayOutputStream();
+                                            bitmap1.compress(Bitmap.CompressFormat.PNG, 100, baos1);
+                                            byte[] data1 = baos1.toByteArray();
+                                            final UploadTask uploadTask1 = mountainsRef1.putBytes(data1);
+                                            uploadTask1.addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception exception) {
+                                                    //Toast.makeText(ThongTinTaiKhoanActivity.this, "Thêm hình ảnh thất bại!", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                                @Override
+                                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+
+                                                }
+                                            });
+
+
+
+                                            UserData userUpdate = new UserData(sUserName,snapshot.getValue(UserData.class).getShopID(),sFullname,sSDT,sGenDer,sDiaChi, snapshot.getValue(UserData.class).getPassword(),sKey,snapshot.getValue(UserData.class).getUserID(), snapshot.getValue(UserData.class).getNgayThamGia(),snapshot.getValue(UserData.class).getSoCMND(),snapshot.getValue(UserData.class).getEmail(), sKey1,snapshot.getValue(UserData.class).getPermission(), snapshot.getValue(UserData.class).getHoaHong(), snapshot.getValue(UserData.class).getTinhTrang(), snapshot.getValue(UserData.class).getSoSPDaBan(), snapshot.getValue(UserData.class).getDiemThanhVien(),snapshot.getValue(UserData.class).getReport(),snapshot.getValue(UserData.class).getMoney());
                                             databaseReference.child("User").child(snapshot.getKey()).setValue(userUpdate);
 
                                             if(snapshot.getValue(UserData.class).getPermission() == 1){

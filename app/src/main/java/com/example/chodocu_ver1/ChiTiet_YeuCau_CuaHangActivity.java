@@ -190,7 +190,8 @@ public class ChiTiet_YeuCau_CuaHangActivity extends AppCompatActivity {
                                             UserData userData = new UserData(snapshot.getValue(UserData.class).getUserName(),snapshot.getValue(UserData.class).getShopID(),snapshot.getValue(UserData.class).getHoTen(),
                                                     snapshot.getValue(UserData.class).getSoDienThoai(), snapshot.getValue(UserData.class).getGioiTinh(), snapshot.getValue(UserData.class).getDiaChi(),
                                                     snapshot.getValue(UserData.class).getPassword(), snapshot.getValue(UserData.class).getImage(), snapshot.getValue(UserData.class).getUserID(),
-                                                    snapshot.getValue(UserData.class).getNgayThamGia(), snapshot.getValue(UserData.class).getSoCMND(),snapshot.getValue(UserData.class).getEmail(), snapshot.getValue(UserData.class).getPermission(), commission, snapshot.getValue(UserData.class).getTinhTrang(),
+                                                    snapshot.getValue(UserData.class).getNgayThamGia(), snapshot.getValue(UserData.class).getSoCMND(),snapshot.getValue(UserData.class).getEmail()
+                                                    ,snapshot.getValue(UserData.class).getCmndMatTruoc(), snapshot.getValue(UserData.class).getPermission(), commission, snapshot.getValue(UserData.class).getTinhTrang(),
                                                     snapshot.getValue(UserData.class).getSoSPDaBan(), snapshot.getValue(UserData.class).getDiemThanhVien(), snapshot.getValue(UserData.class).getReport(), snapshot.getValue(UserData.class).getMoney());
 
                                             databaseReference.child("User").child(userID).setValue(userData);
@@ -264,7 +265,8 @@ public class ChiTiet_YeuCau_CuaHangActivity extends AppCompatActivity {
                                             UserData userData = new UserData(snapshot.getValue(UserData.class).getUserName(),snapshot.getValue(UserData.class).getShopID(),snapshot.getValue(UserData.class).getHoTen(),
                                                     snapshot.getValue(UserData.class).getSoDienThoai(), snapshot.getValue(UserData.class).getGioiTinh(), snapshot.getValue(UserData.class).getDiaChi(),
                                                     snapshot.getValue(UserData.class).getPassword(), snapshot.getValue(UserData.class).getImage(), snapshot.getValue(UserData.class).getUserID(),
-                                                    snapshot.getValue(UserData.class).getNgayThamGia(), snapshot.getValue(UserData.class).getSoCMND(),snapshot.getValue(UserData.class).getEmail(), snapshot.getValue(UserData.class).getPermission(), commission, snapshot.getValue(UserData.class).getTinhTrang(),
+                                                    snapshot.getValue(UserData.class).getNgayThamGia(), snapshot.getValue(UserData.class).getSoCMND(),snapshot.getValue(UserData.class).getEmail()
+                                                    ,snapshot.getValue(UserData.class).getCmndMatTruoc(), snapshot.getValue(UserData.class).getPermission(), commission, snapshot.getValue(UserData.class).getTinhTrang(),
                                                     snapshot.getValue(UserData.class).getSoSPDaBan(), snapshot.getValue(UserData.class).getDiemThanhVien(), snapshot.getValue(UserData.class).getReport(), snapshot.getValue(UserData.class).getMoney());
 
                                             databaseReference.child("User").child(userID).setValue(userData);

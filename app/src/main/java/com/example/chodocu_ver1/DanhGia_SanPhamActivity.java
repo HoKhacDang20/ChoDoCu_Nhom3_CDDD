@@ -62,6 +62,7 @@ public class DanhGia_SanPhamActivity extends AppCompatActivity {
                                 intent.putExtra("Navigate", "User");
                                 intent.putExtra("DonHangID", orderDataArrayList.get(position).getDonHangID());
                                 startActivity(intent);
+
                                 break;
                             case DialogInterface.BUTTON_NEGATIVE:
                                 return;

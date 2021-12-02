@@ -58,7 +58,7 @@ public class DangNhapActivity extends AppCompatActivity {
         txtRegistry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Đăng ký tài khoản!", Toast.LENGTH_SHORT).show(); //hiện thông báo chuyển trang
+                //Toast.makeText(v.getContext(), "Đăng ký tài khoản!", Toast.LENGTH_SHORT).show(); //hiện thông báo chuyển trang
                 Intent intent = new Intent(DangNhapActivity.this, DangKyActivity.class); //chuyển sang trang khác
                 intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent);

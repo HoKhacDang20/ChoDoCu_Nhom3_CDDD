@@ -80,6 +80,7 @@ public class Report_SP_Activity extends AppCompatActivity {
                 @Override
                 public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                     if (snapshot.getValue(SanPham.class).getiD().equals(sanPhamID)) {
+                        //Toast.makeText(Report_SP_Activity.this, sanPhamID, Toast.LENGTH_SHORT).show();
                         storageReference.child(snapshot.getValue(SanPham.class).getSpImage() + ".png").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
                             public void onSuccess(Uri uri) {

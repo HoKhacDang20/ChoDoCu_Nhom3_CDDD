@@ -7,11 +7,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +23,8 @@ import android.widget.Toast;
 import com.example.chodocu_ver1.data_models.HoaHong;
 import com.example.chodocu_ver1.data_models.UserData;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,7 +35,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -38,6 +48,9 @@ import java.util.regex.Pattern;
 
 public class DangKyActivity extends AppCompatActivity {
     //private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();//tạo liên kết firebase
+    private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+    private StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+
     private TextView txtRegistryReturn;//link quay lại trang đăng nhập
     private EditText edtEmail, edtUserName, edtFullName, edtSDT, edtDiaChi, edtPass, edtPassConfirm, edtSoCMND;// các trường nhập thông tin tài khoản
     private Spinner spnGender;//Spinner giới tính user
@@ -51,12 +64,33 @@ public class DangKyActivity extends AppCompatActivity {
     private static final String USERNAME_PATTERN = "^[a-z0-9]{3,8}$";//kiểm tra user name nhập vào
     private Pattern pattern;
     private int userCommission;// hoa hồng của user
+    private ImageView imgCMNDMatTruoc, imgCMNDMatSau;
+
+    private int PICK_IMAGE = 123;
+    private int CAMERA_IMAGE = 123;
+
+    private int IMGCheck = 0;
+
+    private Button btnChooseFromGallery, btnOpenCamera;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN); //enable full screen
         setContentView(R.layout.dangky_layout);
+
+
+        //CMND:
+        imgCMNDMatTruoc = (ImageView) findViewById(R.id.imgCMNDMatTruoc);
+
+        btnChooseFromGallery = (Button) findViewById(R.id.btnChooseFromGallery);
+        btnOpenCamera = (Button) findViewById(R.id.btnOpenCamera);
+
+
+        btnChooseFromGallery.setOnClickListener(chooseGalleryClick);
+        btnOpenCamera.setOnClickListener(openCameraClick);
+
 
         txtRegistryReturn = findViewById(R.id.txtRegistryReturn);
         spnGender = findViewById(R.id.spnGender);
@@ -240,6 +274,15 @@ public class DangKyActivity extends AppCompatActivity {
             if(UserName.isEmpty()){//kiểm tra user có nhập hay chưa
                 edtUserName.setError("Bạn chưa nhập user name!");
             }
+            else if(IMGCheck == 0){
+                android.app.AlertDialog.Builder alert = new android.app.AlertDialog.Builder(v.getContext());
+                alert.setMessage("Bạn chưa chọn hình ảnh CMND mặt trước!").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                }).show();
+            }
             else if(SoCMND.isEmpty()){
                 edtSoCMND.setError("Bạn chưa nhập CMND!");
             }
@@ -339,7 +382,9 @@ public class DangKyActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which){
                             case DialogInterface.BUTTON_POSITIVE:
+
                                 CreateUser(UserName, FullName, SDT, Email, Gender, DiaChi, Pass, SoCMND, iPermission);
+
                                 break;
                             case DialogInterface.BUTTON_NEGATIVE:
                                 return;
@@ -371,7 +416,31 @@ public class DangKyActivity extends AppCompatActivity {
                     DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");// định dạng ngày
                     Date date = new Date();// lấy ngày hiện tại trong hệ thống
 
-                    UserData userData = new UserData(sUserName,"", sFullName, sSdt, sGioiTinh, sDiaChi, sPassword, "",userID, dateFormat.format(date),soCMND, email, iPermission, userCommission, 0, 0, 0, 0, 0);// tạo mới user
+                    String sKey = databaseReference.push().getKey();
+                    final StorageReference mountainsRef = storageReference.child(sKey + ".png");
+
+                    // thể hiện một bức ảnh trong hệ điều hành Android, chứa các thông tin và các phương thức cơ bản để có thể làm việc được với bức ảnh như đọc, ghi các điểm ảnh, lấy thông tin kích thước, ….
+                    imgCMNDMatTruoc.setDrawingCacheEnabled(true);
+                    imgCMNDMatTruoc.buildDrawingCache();
+                    Bitmap bitmap = ((BitmapDrawable) imgCMNDMatTruoc.getDrawable()).getBitmap();
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+                    byte[] data = baos.toByteArray();
+                    final UploadTask uploadTask = mountainsRef.putBytes(data);
+                    uploadTask.addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            //Toast.makeText(v.getContext(), "Thêm hình thất bại!", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+
+                        }
+                    });
+
+                    UserData userData = new UserData(sUserName,"", sFullName, sSdt, sGioiTinh, sDiaChi, sPassword, "",userID, dateFormat.format(date),soCMND, email, sKey, iPermission, userCommission, 0, 0, 0, 0, 0);// tạo mới user
                     mDatabase = FirebaseDatabase.getInstance().getReference();
                     mDatabase.child("User").child(userID).setValue(userData);
                     finish();
@@ -383,5 +452,51 @@ public class DangKyActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+    View.OnClickListener openCameraClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            CAMERA_IMAGE = 2;
+            Intent camera = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(camera, CAMERA_IMAGE);
+        }
+    };
+
+    View.OnClickListener chooseGalleryClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            PICK_IMAGE = 1;
+            Intent gallery = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+            startActivityForResult(gallery, PICK_IMAGE);
+        }
+    };
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+
+        if(PICK_IMAGE != 123){
+            if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null) {
+                Uri imageUri = data.getData();
+                imgCMNDMatTruoc.setImageURI(imageUri);
+
+                IMGCheck = 1;
+            }
+            PICK_IMAGE = 123;
+        }
+        if(CAMERA_IMAGE != 123){
+            if(requestCode == CAMERA_IMAGE && resultCode == RESULT_OK){
+                Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+                imgCMNDMatTruoc.setImageBitmap(bitmap);
+
+                IMGCheck = 1;
+            }
+            CAMERA_IMAGE = 123;
+        }
+
+
+
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

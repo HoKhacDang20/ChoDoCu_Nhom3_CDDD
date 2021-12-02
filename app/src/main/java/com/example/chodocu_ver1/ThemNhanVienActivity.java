@@ -337,7 +337,7 @@ public class ThemNhanVienActivity extends AppCompatActivity {
                     DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");// định dạng ngày
                     Date date = new Date();// lấy ngày hiện tại trong hệ thống
 
-                    UserData userData = new UserData(sUserName,"", sFullName, sSdt, sGioiTinh, sDiaChi, sPassword, "", userID, dateFormat.format(date),"",email, iPermission, 0, 0, 0, 0, 0, 0);
+                    UserData userData = new UserData(sUserName,"", sFullName, sSdt, sGioiTinh, sDiaChi, sPassword, "", userID, dateFormat.format(date),"",email,"", iPermission, 0, 0, 0, 0, 0, 0);
                     //UserData userData = new UserData(sUserName,"", sFullName, sSdt, sGioiTinh, sDiaChi, sPassword, "",userID, dateFormat.format(date),soCMND, email, iPermission, userCommission, 0, 0, 0, 0, 0);// tạo mới user
                     mDatabase = FirebaseDatabase.getInstance().getReference();
                     mDatabase.child("User").child(userID).setValue(userData);

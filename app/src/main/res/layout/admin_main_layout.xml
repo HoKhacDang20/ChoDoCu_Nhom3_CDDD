@@ -100,7 +100,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#FF5252"
-                android:text="@string/quan_li_user"
+                android:text="Danh sách user bị khóa"
                 android:textSize="11sp"
                 android:textAllCaps="false"
                 android:layout_marginBottom="20dp"/>

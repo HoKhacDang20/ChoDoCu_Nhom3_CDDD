@@ -159,7 +159,8 @@ public class DoiMatKhauActivity extends AppCompatActivity {
                                                                 UserData userUpdate = new UserData(snapshot.getValue(UserData.class).getUserName(),snapshot.getValue(UserData.class).getShopID(),
                                                                         snapshot.getValue(UserData.class).getHoTen(), snapshot.getValue(UserData.class).getSoDienThoai(), snapshot.getValue(UserData.class).getGioiTinh(),
                                                                         snapshot.getValue(UserData.class).getDiaChi(), sConfirmPassword, snapshot.getValue(UserData.class).getImage(),snapshot.getValue(UserData.class).getUserID(), snapshot.getValue(UserData.class).getNgayThamGia()
-                                                                        , snapshot.getValue(UserData.class).getSoCMND(),snapshot.getValue(UserData.class).getEmail(),snapshot.getValue(UserData.class).getPermission(),
+                                                                        , snapshot.getValue(UserData.class).getSoCMND(),snapshot.getValue(UserData.class).getEmail()
+                                                                        ,snapshot.getValue(UserData.class).getCmndMatTruoc(),snapshot.getValue(UserData.class).getPermission(),
                                                                         snapshot.getValue(UserData.class).getHoaHong(), snapshot.getValue(UserData.class).getTinhTrang(), snapshot.getValue(UserData.class).getSoSPDaBan(),
                                                                         snapshot.getValue(UserData.class).getDiemThanhVien(), snapshot.getValue(UserData.class).getReport(), snapshot.getValue(UserData.class).getMoney());
                                                                 databaseReference.child("User").child(snapshot.getKey()).setValue(userUpdate);
@@ -285,7 +286,7 @@ public class DoiMatKhauActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                     else if(snapshot.getValue(UserData.class).getUserName().equals(sUserName) && snapshot.getValue(UserData.class).getPermission() == 3 || snapshot.getValue(UserData.class).getUserName().equals(sUserName) && snapshot.getValue(UserData.class).getPermission() == 4){
-                        //Intent intent = new Intent(v.getContext(), ShipperMainActivity.class);
+                        Intent intent = new Intent(v.getContext(), ShipperMainActivity.class);
                         intent.putExtra("UserName", sUserName);
                         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                         finish();

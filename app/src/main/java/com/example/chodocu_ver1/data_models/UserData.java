@@ -2,11 +2,11 @@ package com.example.chodocu_ver1.data_models;
 
 public class UserData {
 
-    private String userName, shopID, hoTen, soDienThoai, gioiTinh, diaChi, password, image, userID, ngayThamGia, soCMND, email;
+    private String userName, shopID, hoTen, soDienThoai, gioiTinh, diaChi, password, image, userID, ngayThamGia, soCMND, email, cmndMatTruoc;
     private int permission, hoaHong, tinhTrang, soSPDaBan, diemThanhVien, report;
     private long money;
 
-    public UserData(String userName, String shopID, String hoTen, String soDienThoai, String gioiTinh, String diaChi, String password, String image, String userID, String ngayThamGia, String soCMND, String email, int permission, int hoaHong, int tinhTrang, int soSPDaBan, int diemThanhVien, int report, long money) {
+    public UserData(String userName, String shopID, String hoTen, String soDienThoai, String gioiTinh, String diaChi, String password, String image, String userID, String ngayThamGia, String soCMND, String email, String cmndMatTruoc, int permission, int hoaHong, int tinhTrang, int soSPDaBan, int diemThanhVien, int report, long money) {
         this.userName = userName;
         this.shopID = shopID;
         this.hoTen = hoTen;
@@ -19,6 +19,7 @@ public class UserData {
         this.ngayThamGia = ngayThamGia;
         this.soCMND = soCMND;
         this.email = email;
+        this.cmndMatTruoc = cmndMatTruoc;
         this.permission = permission;
         this.hoaHong = hoaHong;
         this.tinhTrang = tinhTrang;
@@ -31,6 +32,13 @@ public class UserData {
     public UserData() {
     }
 
+    public String getCmndMatTruoc() {
+        return cmndMatTruoc;
+    }
+
+    public void setCmndMatTruoc(String cmndMatTruoc) {
+        this.cmndMatTruoc = cmndMatTruoc;
+    }
 
     public String getUserName() {
         return userName;

@@ -156,11 +156,11 @@ public class DanhGiaActivity extends AppCompatActivity {
             finish();
             intent = new Intent(DanhGiaActivity.this, Report_SP_Activity.class);
             intent.putExtra("UserName", userName);
-            intent.putExtra("IdSanPham", productID);
+            intent.putExtra("ProductID", productID);
             intent.putExtra("UserID", userID);
             intent.putExtra("Navigate", navigateTo);
-            intent.putExtra("IdDonHang", donHangID);
-            intent.putExtra("IdNguoiBan", nguoiBanID);
+            intent.putExtra("DonHangID", donHangID);
+            intent.putExtra("NguoiBanID", nguoiBanID);
             intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
         }
@@ -234,7 +234,8 @@ public class DanhGiaActivity extends AppCompatActivity {
                                                     int newPoint = snapshot.getValue(UserData.class).getDiemThanhVien() + 1;
                                                     UserData userUpdate = new UserData(snapshot.getValue(UserData.class).getUserName(),snapshot.getValue(UserData.class).getShopID(),snapshot.getValue(UserData.class).getHoTen(),snapshot.getValue(UserData.class).getSoDienThoai(),
                                                             snapshot.getValue(UserData.class).getGioiTinh(),snapshot.getValue(UserData.class).getDiaChi(), snapshot.getValue(UserData.class).getPassword(),snapshot.getValue(UserData.class).getImage(),snapshot.getValue(UserData.class).getUserID(),
-                                                            snapshot.getValue(UserData.class).getNgayThamGia(),snapshot.getValue(UserData.class).getSoCMND(),snapshot.getValue(UserData.class).getEmail(),snapshot.getValue(UserData.class).getPermission(),
+                                                            snapshot.getValue(UserData.class).getNgayThamGia(),snapshot.getValue(UserData.class).getSoCMND(),snapshot.getValue(UserData.class).getEmail()
+                                                            ,snapshot.getValue(UserData.class).getCmndMatTruoc(),snapshot.getValue(UserData.class).getPermission(),
                                                             snapshot.getValue(UserData.class).getHoaHong(), snapshot.getValue(UserData.class).getTinhTrang(), snapshot.getValue(UserData.class).getSoSPDaBan(),
                                                             newPoint,snapshot.getValue(UserData.class).getReport(),snapshot.getValue(UserData.class).getMoney());
                                                     databaseReference.child("User").child(snapshot.getKey()).setValue(userUpdate);
@@ -245,7 +246,8 @@ public class DanhGiaActivity extends AppCompatActivity {
                                                     UserData userUpdate = new UserData(snapshot.getValue(UserData.class).getUserName(),snapshot.getValue(UserData.class).getShopID(),snapshot.getValue(UserData.class).getHoTen(),snapshot.getValue(UserData.class).getSoDienThoai(),
                                                             snapshot.getValue(UserData.class).getGioiTinh(),snapshot.getValue(UserData.class).getDiaChi(), snapshot.getValue(UserData.class).getPassword(),snapshot.getValue(UserData.class).getImage(),snapshot.getValue(UserData.class).getUserID(),
                                                             snapshot.getValue(UserData.class).getNgayThamGia()
-                                                            ,snapshot.getValue(UserData.class).getSoCMND(),snapshot.getValue(UserData.class).getEmail(),snapshot.getValue(UserData.class).getPermission(),
+                                                            ,snapshot.getValue(UserData.class).getSoCMND()
+                                                            ,snapshot.getValue(UserData.class).getCmndMatTruoc(),snapshot.getValue(UserData.class).getEmail(),snapshot.getValue(UserData.class).getPermission(),
                                                             snapshot.getValue(UserData.class).getHoaHong(), snapshot.getValue(UserData.class).getTinhTrang(), snapshot.getValue(UserData.class).getSoSPDaBan(),
                                                             newPoint,snapshot.getValue(UserData.class).getReport(),snapshot.getValue(UserData.class).getMoney());
                                                     databaseReference.child("User").child(snapshot.getKey()).setValue(userUpdate);
