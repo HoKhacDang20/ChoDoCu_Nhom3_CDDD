@@ -10,6 +10,7 @@
         <entry key="..\:/AndroidProject/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/activity_login.xml" value="0.1644021739130435" />
         <entry key="..\:/AndroidProject/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/dangnhap_layout.xml" value="0.11203703703703703" />
         <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/drawable/nen_cuochen.xml" value="0.2703125" />
+        <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/drawable/timkiem_sanpham.xml" value="0.2703125" />
         <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/activity_dang_ky.xml" value="0.264" />
         <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/don_ban_layout.xml" value="0.12681159420289856" />
         <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/don_mua_adapter_layout.xml" value="0.12360688956433637" />
@@ -27,6 +28,7 @@
         <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/shipper_don_dang_giao_layout.xml" value="0.11676798378926039" />
         <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/shipper_don_hoan_tat_detail_layout.xml" value="0.12360688956433637" />
         <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/shipper_don_hoan_tat_layout.xml" value="0.11676798378926039" />
+        <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/shipper_selecting_layout.xml" value="0.12360688956433637" />
         <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/user_bai_tai_len_layout.xml" value="0.12360688956433637" />
         <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/user_chinh_sua_san_pham_layout.xml" value="0.12360688956433637" />
         <entry key="..\:/ChoDoCu_Nhom3_CDDD/app/src/main/res/layout/user_main_layout.xml" value="0.13903985507246377" />
