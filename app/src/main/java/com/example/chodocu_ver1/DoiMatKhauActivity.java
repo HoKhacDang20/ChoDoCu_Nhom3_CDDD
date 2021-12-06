@@ -87,15 +87,15 @@ public class DoiMatKhauActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        if(getIntent().getExtras() != null){
+        if (getIntent().getExtras() != null) {
             sUserName = getIntent().getExtras().getString("UserName");
 
         }
     }
 
-    public boolean oldPasswordCheck(ArrayList<UserData> userDataArrayList, String sUserName, String sPassword){
-        for(UserData userData : userDataArrayList){
-            if(userData.getUserName().equals(sUserName) && userData.getPassword().equals(sPassword)){
+    public boolean oldPasswordCheck(ArrayList<UserData> userDataArrayList, String sUserName, String sPassword) {
+        for (UserData userData : userDataArrayList) {
+            if (userData.getUserName().equals(sUserName) && userData.getPassword().equals(sPassword)) {
                 return true;
             }
         }
@@ -108,28 +108,21 @@ public class DoiMatKhauActivity extends AppCompatActivity {
             sOldPassword = edtOldPassword.getText().toString();
             sNewPassword = edtNewPassword.getText().toString();
             sConfirmPassword = edtConfirmPassword.getText().toString();
-            if(sOldPassword.isEmpty()){
+            if (sOldPassword.isEmpty()) {
                 edtOldPassword.setError("Bạn chưa nhập mật khẩu cũ!");
-            }
-            else if (sNewPassword.isEmpty()) {
+            } else if (sNewPassword.isEmpty()) {
                 edtNewPassword.setError("Bạn chưa nhập mật khẩu mới!");
-            }
-            else if(sNewPassword.length() < 6) {
+            } else if (sNewPassword.length() < 6) {
                 edtNewPassword.setError("Mật khẩu phải có ít nhất 6 ký tự!");
-            }
-            else if(sNewPassword.equals(sOldPassword)) {
+            } else if (sNewPassword.equals(sOldPassword)) {
                 edtNewPassword.setError("Mật khẩu mới phải khác mật khẩu cũ!");
-            }
-            else if (sConfirmPassword.isEmpty()) {
+            } else if (sConfirmPassword.isEmpty()) {
                 edtConfirmPassword.setError("Bạn chưa xác nhận mật khẩu!");
-            }
-            else if(sConfirmPassword.length() < 6) {
+            } else if (sConfirmPassword.length() < 6) {
                 edtConfirmPassword.setError("Mật khẩu phải có ít nhất 6 ký tự!");
-            }
-            else if(!sNewPassword.equals(sConfirmPassword)) {
+            } else if (!sNewPassword.equals(sConfirmPassword)) {
                 edtConfirmPassword.setError("Mật khẩu xác nhận chưa chính xác!");
-            }
-            else if(oldPasswordCheck(userDataArrayList, sUserName, edtOldPassword.getText().toString()) == false){
+            } else if (oldPasswordCheck(userDataArrayList, sUserName, edtOldPassword.getText().toString()) == false) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(v.getContext());
                 alert.setMessage("Bạn nhập mật khẩu cũ chưa chính xác!").setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
@@ -137,8 +130,7 @@ public class DoiMatKhauActivity extends AppCompatActivity {
 
                     }
                 }).show();
-            }
-            else{
+            } else {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 user.updatePassword(sNewPassword)
@@ -150,17 +142,17 @@ public class DoiMatKhauActivity extends AppCompatActivity {
                                     databaseReference.child("User").addChildEventListener(new ChildEventListener() {
                                         @Override
                                         public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                                            if(snapshot.getValue(UserData.class).getUserName().equals(sUserName) && snapshot.getValue(UserData.class).getPassword().equals(sOldPassword)){
+                                            if (snapshot.getValue(UserData.class).getUserName().equals(sUserName) && snapshot.getValue(UserData.class).getPassword().equals(sOldPassword)) {
                                                 DialogInterface.OnClickListener dialogClick = new DialogInterface.OnClickListener() {
                                                     @Override
                                                     public void onClick(DialogInterface dialog, int which) {
-                                                        switch (which){
+                                                        switch (which) {
                                                             case DialogInterface.BUTTON_POSITIVE:
-                                                                UserData userUpdate = new UserData(snapshot.getValue(UserData.class).getUserName(),snapshot.getValue(UserData.class).getShopID(),
+                                                                UserData userUpdate = new UserData(snapshot.getValue(UserData.class).getUserName(), snapshot.getValue(UserData.class).getShopID(),
                                                                         snapshot.getValue(UserData.class).getHoTen(), snapshot.getValue(UserData.class).getSoDienThoai(), snapshot.getValue(UserData.class).getGioiTinh(),
-                                                                        snapshot.getValue(UserData.class).getDiaChi(), sConfirmPassword, snapshot.getValue(UserData.class).getImage(),snapshot.getValue(UserData.class).getUserID(), snapshot.getValue(UserData.class).getNgayThamGia()
-                                                                        , snapshot.getValue(UserData.class).getSoCMND(),snapshot.getValue(UserData.class).getEmail()
-                                                                        ,snapshot.getValue(UserData.class).getCmndMatTruoc(),snapshot.getValue(UserData.class).getPermission(),
+                                                                        snapshot.getValue(UserData.class).getDiaChi(), sConfirmPassword, snapshot.getValue(UserData.class).getImage(), snapshot.getValue(UserData.class).getUserID(), snapshot.getValue(UserData.class).getNgayThamGia()
+                                                                        , snapshot.getValue(UserData.class).getSoCMND(), snapshot.getValue(UserData.class).getEmail()
+                                                                        , snapshot.getValue(UserData.class).getCmndMatTruoc(), snapshot.getValue(UserData.class).getPermission(),
                                                                         snapshot.getValue(UserData.class).getHoaHong(), snapshot.getValue(UserData.class).getTinhTrang(), snapshot.getValue(UserData.class).getSoSPDaBan(),
                                                                         snapshot.getValue(UserData.class).getDiemThanhVien(), snapshot.getValue(UserData.class).getReport(), snapshot.getValue(UserData.class).getMoney());
                                                                 databaseReference.child("User").child(snapshot.getKey()).setValue(userUpdate);
@@ -169,7 +161,7 @@ public class DoiMatKhauActivity extends AppCompatActivity {
                                                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                                                 finish();
                                                                 startActivity(intent);
-                                                                Toast.makeText(DoiMatKhauActivity.this,  "Cập nhật mật khẩu thành công!", Toast.LENGTH_SHORT).show();
+                                                                Toast.makeText(DoiMatKhauActivity.this, "Cập nhật mật khẩu thành công!", Toast.LENGTH_SHORT).show();
                                                                 break;
                                                             case DialogInterface.BUTTON_NEGATIVE:
                                                                 return;
@@ -178,7 +170,7 @@ public class DoiMatKhauActivity extends AppCompatActivity {
                                                     }
                                                 };
                                                 AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
-                                                builder.setMessage("Bạn muốn đổi mật khẩu?").setNegativeButton("No",dialogClick).setPositiveButton("Yes",dialogClick).show();
+                                                builder.setMessage("Bạn muốn đổi mật khẩu?").setNegativeButton("No", dialogClick).setPositiveButton("Yes", dialogClick).show();
 
                                             }
                                         }
@@ -268,52 +260,51 @@ public class DoiMatKhauActivity extends AppCompatActivity {
     View.OnClickListener backClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            databaseReference.child("User").addChildEventListener(new ChildEventListener() {
-                @Override
-                public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                    if(snapshot.getValue(UserData.class).getUserName().equals(sUserName) && snapshot.getValue(UserData.class).getPermission() == 1){
-                        Intent intent = new Intent(v.getContext(), UserMainActivity.class);
-                        intent.putExtra("UserName", sUserName);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                        finish();
-                        startActivity(intent);
-                    }
-                    else if(snapshot.getValue(UserData.class).getUserName().equals(sUserName) && snapshot.getValue(UserData.class).getPermission() == 0 || snapshot.getValue(UserData.class).getUserName().equals(sUserName) && snapshot.getValue(UserData.class).getPermission() == 2){
-                        Intent intent = new Intent(v.getContext(), AdminMainActivity.class);
-                        intent.putExtra("UserName", sUserName);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                        finish();
-                        startActivity(intent);
-                    }
-                    else if(snapshot.getValue(UserData.class).getUserName().equals(sUserName) && snapshot.getValue(UserData.class).getPermission() == 3 || snapshot.getValue(UserData.class).getUserName().equals(sUserName) && snapshot.getValue(UserData.class).getPermission() == 4){
-                        Intent intent = new Intent(v.getContext(), ShipperMainActivity.class);
-                        intent.putExtra("UserName", sUserName);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                        finish();
-                        startActivity(intent);
-                    }
-                }
-
-                @Override
-                public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                }
-
-                @Override
-                public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-                }
-
-                @Override
-                public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
+//            databaseReference.child("User").addChildEventListener(new ChildEventListener() {
+//                @Override
+//                public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+//                    if (snapshot.getValue(UserData.class).getUserName().equals(sUserName) && snapshot.getValue(UserData.class).getPermission() == 1) {
+//                        Intent intent = new Intent(v.getContext(), UserMainActivity.class);
+//                        intent.putExtra("UserName", sUserName);
+//                        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+//                        finish();
+//                        startActivity(intent);
+//                    } else if (snapshot.getValue(UserData.class).getUserName().equals(sUserName) && snapshot.getValue(UserData.class).getPermission() == 0 || snapshot.getValue(UserData.class).getUserName().equals(sUserName) && snapshot.getValue(UserData.class).getPermission() == 2) {
+//                        Intent intent = new Intent(v.getContext(), AdminMainActivity.class);
+//                        intent.putExtra("UserName", sUserName);
+//                        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+//                        finish();
+//                        startActivity(intent);
+//                    } else if (snapshot.getValue(UserData.class).getUserName().equals(sUserName) && snapshot.getValue(UserData.class).getPermission() == 3 || snapshot.getValue(UserData.class).getUserName().equals(sUserName) && snapshot.getValue(UserData.class).getPermission() == 4) {
+//                        Intent intent = new Intent(v.getContext(), ShipperMainActivity.class);
+//                        intent.putExtra("UserName", sUserName);
+//                        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+//                        finish();
+//                        startActivity(intent);
+//                    }
+//                }
+//
+//                @Override
+//                public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+//
+//                }
+//
+//                @Override
+//                public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+//
+//                }
+//
+//                @Override
+//                public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+//
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError error) {
+//
+//                }
+//            });
+            DoiMatKhauActivity.this.finish();
         }
     };
 }
