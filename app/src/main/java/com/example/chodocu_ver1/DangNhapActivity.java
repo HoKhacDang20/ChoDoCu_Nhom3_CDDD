@@ -189,7 +189,7 @@ public class DangNhapActivity extends AppCompatActivity {
 
                                 //Intent intent = new Intent();
                                 edtLoginPass.setText("");
-                                Toast.makeText(DangNhapActivity.this, "Đăng nhập thành công", Toast.LENGTH_LONG).show();
+                                //Toast.makeText(DangNhapActivity.this, "Đăng nhập thành công", Toast.LENGTH_LONG).show();
                               //startActivity(intent);
 
                                 databaseReference.child("User").addChildEventListener(new ChildEventListener() {
@@ -262,6 +262,7 @@ public class DangNhapActivity extends AppCompatActivity {
                         }
                     }
                 });
+                Toast.makeText(v.getContext(), "Đăng nhập thành công!",Toast.LENGTH_SHORT).show();
             }
         }
     };

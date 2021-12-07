@@ -84,6 +84,8 @@ public class DangKyActivity extends AppCompatActivity {
         //CMND:
         imgCMNDMatTruoc = (ImageView) findViewById(R.id.imgCMNDMatTruoc);
 
+        imgCMNDMatSau = (ImageView) findViewById(R.id.imgCMNDMatTruoc);
+
         btnChooseFromGallery = (Button) findViewById(R.id.btnChooseFromGallery);
         btnOpenCamera = (Button) findViewById(R.id.btnOpenCamera);
 
@@ -409,8 +411,7 @@ public class DangKyActivity extends AppCompatActivity {
                     // Sign in success, update UI with the signed-in user's information
 
                     FirebaseUser user = mAuth.getCurrentUser();
-                    Toast.makeText(DangKyActivity.this, "Đăng ký tài khoản thành công",
-                            Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(DangKyActivity.this, "Đăng ký tài khoản thành công",Toast.LENGTH_SHORT).show();
                     String userID = user.getUid();
 
                     DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");// định dạng ngày
@@ -446,8 +447,8 @@ public class DangKyActivity extends AppCompatActivity {
                     finish();
                 } else {
                     // If sign in fails, display a message to the user.
-                    Toast.makeText(DangKyActivity.this, "Lỗi email chưa chính xác",
-                            Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(DangKyActivity.this, "Lỗi email chưa chính xác",
+//                            Toast.LENGTH_SHORT).show();
                 }
 
             }

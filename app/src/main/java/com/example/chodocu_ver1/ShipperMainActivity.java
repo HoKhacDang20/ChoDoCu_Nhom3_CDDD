@@ -364,8 +364,12 @@ public class ShipperMainActivity extends AppCompatActivity {
 //                            intent = new Intent(v.getContext(), DangNhapActivity.class);
 //                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //                            startActivity(intent);
+//                            FirebaseAuth.getInstance().signOut();
+//                            finish();
+//                            break;
                             FirebaseAuth.getInstance().signOut();
-                            finish();
+                            intent = new Intent(v.getContext(), DangNhapActivity.class);
+                            startActivity(intent);
                             break;
                         case DialogInterface.BUTTON_NEGATIVE:
                             return;

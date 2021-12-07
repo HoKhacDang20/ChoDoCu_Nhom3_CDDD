@@ -7,122 +7,133 @@
     android:layout_height="match_parent"
     tools:context=".HoaHongActivity"
     android:padding="20dp"
+    android:orientation="vertical"
     android:background="@mipmap/nen_muahang">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="@string/hoahong"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:gravity="center" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:gravity="center"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:padding="10dp">
-        <LinearLayout
+        android:layout_weight="4"
+        android:layout_marginRight="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="40dp">
+
+        <TextView
             android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_height="0dp"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hoahong"
-                android:textSize="30sp"/>
-        </LinearLayout>
-        <LinearLayout
+            android:text="Hoa Hồng Shop"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:padding="10dp"/>
+        <EditText
+            android:id="@+id/edtCommissionShop"
             android:layout_width="match_parent"
-            android:layout_weight="9"
             android:layout_height="0dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hoa Hồng Shop"
-                    android:textSize="20dp"/>
-                <EditText
-                    android:id="@+id/edtCommissionShop"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"/>
-                <Button
-                    android:id="@+id/btnChangeShop"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#FD825A"
-                    android:text="Thay Đổi"/>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hoa Hồng User"
-                    android:textSize="20dp"/>
-                <EditText
-                    android:id="@+id/edtCommissionUser"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-                <Button
-                    android:id="@+id/btnChangeUser"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#FD825A"
-                    android:inputType="number"
-                    android:text="Thay Đổi"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hoa Hồng Shiper"
-                    android:textSize="20dp"
-                    android:layout_marginTop="40dp"/>
-                <EditText
-                    android:id="@+id/edtCommissionShipper"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-                <Button
-                    android:id="@+id/btnChangeShipper"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#FD825A"
-                    android:inputType="number"
-                    android:text="Thay Đổi"/>
-
-            </LinearLayout>
-
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
             android:layout_weight="1"
+            android:inputType="number"
+            android:gravity="center"/>
+        <Button
+            android:id="@+id/btnChangeShop"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/btnBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#FD825A"
-                android:text="@string/Back"/>
-        </LinearLayout>
+            android:layout_weight="1"
+            android:backgroundTint="#FD825A"
+            android:text="Thay Đổi"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="4"
+        android:layout_marginRight="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="40dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Hoa Hồng User"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:padding="10dp"/>
+        <EditText
+            android:id="@+id/edtCommissionUser"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:gravity="center"/>
+        <Button
+            android:id="@+id/btnChangeUser"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FD825A"
+            android:text="Thay Đổi"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="4"
+        android:layout_marginRight="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Hoa Hồng Shipper"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:padding="10dp"/>
+        <EditText
+            android:id="@+id/edtCommissionShipper"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:gravity="center"/>
+        <Button
+            android:id="@+id/btnChangeShipper"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FD825A"
+            android:text="Thay Đổi"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#FD825A"
+            android:text="@string/Back" />
+    </LinearLayout>
 </LinearLayout>

@@ -82,8 +82,28 @@ public class WalletUserFragment extends Fragment {
                     }
                 }
             };
-            AlertDialog.Builder alert = new AlertDialog.Builder(v.getContext());
-            alert.setMessage("Bạn muốn nạp " + edtSoTien.getText().toString() + "vnđ vào ví?").setNegativeButton("No", dialog).setPositiveButton("Yes", dialog).show();
+            AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+            builder.setTitle("Bạn có muốn nạp " + edtSoTien.getText().toString()+" vnđ vào ví");
+            builder.setMessage("Vui lòng xác nhận lựa chọn");
+            builder.setIcon(R.drawable.ic_dashboard_black_24dp);
+            builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(v.getContext());
+                    builder1.setMessage("vui lòng chuyển khoản theo cú pháp:\n" +
+                            "TenUser_NapTien_SoTien gửi đến stk 63001312349581\n"+
+                            "Tên chủ thẻ: Nguyễn văn Anh\n"+
+                            "Chi nhánh: Q9").setNegativeButton("NO",dialog)
+                            .setPositiveButton("YES",dialog).show();
+                }
+            });
+            builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
+            builder.show();
         }
     };
 }

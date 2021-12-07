@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.example.chodocu_ver1.DangNhapActivity;
 import com.example.chodocu_ver1.DoiMatKhauActivity;
 import com.example.chodocu_ver1.DonBanActivity;
 import com.example.chodocu_ver1.DonMuaActivity;
@@ -765,8 +766,11 @@ public class SettingsFragment extends Fragment {
                     switch (which) {
                         case DialogInterface.BUTTON_POSITIVE:
 
+//                            FirebaseAuth.getInstance().signOut();
+//                            getActivity().finish();
                             FirebaseAuth.getInstance().signOut();
-                            getActivity().finish();
+                            intent = new Intent(v.getContext(), DangNhapActivity.class);
+                            startActivity(intent);
 
                             break;
                         case DialogInterface.BUTTON_NEGATIVE:

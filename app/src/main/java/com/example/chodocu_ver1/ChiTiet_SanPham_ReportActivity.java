@@ -87,7 +87,7 @@ public class ChiTiet_SanPham_ReportActivity extends AppCompatActivity {
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(ChiTiet_SanPham_ReportActivity.this, "Hinh anh khong ton tai!", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(ChiTiet_SanPham_ReportActivity.this, "Hinh anh khong ton tai!", Toast.LENGTH_SHORT).show();
                             }
                         });
                         txtTenSP.setText(snapshot.getValue(SanPhamReport.class).getSanPham().getTenSP());
